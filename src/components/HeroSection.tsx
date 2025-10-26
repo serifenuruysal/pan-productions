@@ -100,7 +100,7 @@ const HeroSection = () => {
       {/* Left Content Section */}
       <div className="relative z-10 w-full lg:w-1/2 px-8 lg:px-16">
         <div className="mb-6">
-          <span className="inline-block px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase bg-primary/20 text-primary border border-primary/30 mb-4">
+          <span className="inline-block px-5 py-2 rounded text-xs font-semibold tracking-wider uppercase bg-primary/20 text-primary border border-primary/30 mb-4">
             {slides[currentSlide].subtitle}
           </span>
         </div>
@@ -120,7 +120,7 @@ const HeroSection = () => {
             </Button>
           </Link>
           
-          <Button variant="outline" size="lg" className="px-10 py-6 text-base bg-white/5 border-white/20 text-white hover:bg-white/10 backdrop-blur-sm rounded-full">
+          <Button variant="outline" size="lg" className="px-10 py-6 text-base bg-white/5 border-white/20 text-white hover:bg-white/10 backdrop-blur-sm">
             <Play className="w-5 h-5 mr-2" />
             Watch Trailer
           </Button>
@@ -132,7 +132,7 @@ const HeroSection = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`h-1 rounded-full transition-all duration-300 ${
+              className={`h-1 rounded transition-all duration-300 ${
                 index === currentSlide 
                   ? 'w-12 bg-primary' 
                   : 'w-8 bg-white/30 hover:bg-white/50'
@@ -145,11 +145,11 @@ const HeroSection = () => {
       {/* Right Image Section */}
       <div className="hidden lg:flex relative z-10 w-1/2 h-full items-center justify-center px-8">
         <div className="relative w-full max-w-2xl">
-          <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-3xl blur-3xl" />
+          <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg blur-3xl" />
           <img
             src={slides[currentSlide].image}
             alt={slides[currentSlide].title}
-            className="relative w-full h-auto object-contain rounded-2xl shadow-2xl"
+            className="relative w-full h-auto object-contain rounded-lg shadow-2xl"
           />
         </div>
       </div>
@@ -157,14 +157,14 @@ const HeroSection = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all"
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all"
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white transition-all"
       >
         <ChevronRight className="w-6 h-6" />
       </button>

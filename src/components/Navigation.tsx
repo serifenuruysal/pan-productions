@@ -39,6 +39,9 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
+            <div className="w-10 h-10 rounded bg-primary flex items-center justify-center">
+              <span className="font-heading text-lg font-bold text-white">P</span>
+            </div>
             <span className="font-heading text-2xl font-bold tracking-tight text-white">
               Pan Productions
             </span>
