@@ -80,25 +80,24 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center overflow-hidden bg-gradient-to-br from-background to-card">
-      {/* Background Images */}
-      {slides.map((slide, index) => (
-        <div
-          key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <img
-            src={slide.image}
-            alt={slide.title}
-            className="w-full h-full object-cover opacity-20"
-          />
-        </div>
-      ))}
+    <section className="relative h-screen flex items-center overflow-hidden">
+      {/* Organic Blob Shapes Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Large blob - bottom left */}
+        <div className="absolute -bottom-32 -left-32 w-[800px] h-[600px] rounded-[40%_60%_70%_30%/60%_30%_70%_40%] bg-card/40 blur-3xl" 
+             style={{ transform: 'rotate(-15deg)' }} />
+        
+        {/* Medium blob - top right */}
+        <div className="absolute -top-20 -right-20 w-[700px] h-[500px] rounded-[60%_40%_30%_70%/40%_60%_70%_30%] bg-muted/30 blur-3xl"
+             style={{ transform: 'rotate(25deg)' }} />
+        
+        {/* Small blob - center */}
+        <div className="absolute top-1/3 left-1/2 w-[600px] h-[400px] rounded-[70%_30%_50%_50%/60%_40%_60%_40%] bg-secondary/20 blur-3xl"
+             style={{ transform: 'translate(-50%, -50%) rotate(-30deg)' }} />
+      </div>
 
       {/* Left Content Section */}
-      <div className="relative z-10 w-full lg:w-1/2 px-8 lg:px-16">
+      <div className="relative z-10 w-full lg:w-3/5 px-8 lg:px-16">
         <div className="mb-6">
           <span className="inline-block px-5 py-2 rounded text-xs font-semibold tracking-wider uppercase bg-primary/20 text-primary border border-primary/30 mb-4">
             {slides[currentSlide].subtitle}
@@ -138,13 +137,12 @@ const HeroSection = () => {
       </div>
 
       {/* Right Image Section */}
-      <div className="hidden lg:flex relative z-10 w-1/2 h-full items-center justify-center px-8">
-        <div className="relative w-full max-w-2xl">
-          <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg blur-3xl" />
+      <div className="hidden lg:flex relative z-10 w-2/5 h-full items-center justify-center px-8">
+        <div className="relative w-full max-w-lg">
           <img
             src={slides[currentSlide].image}
             alt={slides[currentSlide].title}
-            className="relative w-full h-auto object-contain rounded-lg shadow-2xl"
+            className="relative w-full h-auto object-contain rounded-2xl shadow-2xl"
           />
         </div>
       </div>
