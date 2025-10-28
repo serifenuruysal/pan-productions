@@ -39,7 +39,7 @@ const Navigation = () => {
       <div className="container mx-auto px-0">
         <div className="flex items-center justify-between h-32">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center ml-8">
             <img
               src="/images/pan-logo.svg"
               alt="Pan Productions"

@@ -3,68 +3,114 @@ import React from 'react';
 const PartnersCarousel = () => {
   const partners = [
     {
-      name: 'Tower Theatre',
-      logo: 'https://via.placeholder.com/150x80/333/fff?text=Tower+Theatre',
+      name: 'O2 Academy Islington',
+      logo: '/images/partners/o2-academy-islington.png',
     },
     {
-      name: 'London Arts Council',
-      logo: 'https://via.placeholder.com/150x80/333/fff?text=Arts+Council',
+      name: 'Islington Assembly Hall',
+      logo: '/images/partners/islington-assembly-hall.png',
     },
     {
-      name: 'Cultural Foundation',
-      logo: 'https://via.placeholder.com/150x80/333/fff?text=Cultural+Found',
+      name: 'Arcola Theatre',
+      logo: '/images/partners/arcola-theatre.png',
     },
     {
-      name: 'Theatre Network',
-      logo: 'https://via.placeholder.com/150x80/333/fff?text=Theatre+Net',
+      name: 'Acoustic Brasserie',
+      logo: '/images/partners/acoustic-brasserie.png',
     },
     {
-      name: 'London Borough',
-      logo: 'https://via.placeholder.com/150x80/333/fff?text=Borough',
+      name: 'C.N.A Catering Logistics Limited',
+      logo: '/images/partners/cna-catering.png',
     },
     {
-      name: 'Drama Foundation',
-      logo: 'https://via.placeholder.com/150x80/333/fff?text=Drama+Found',
+      name: 'Morgan Has Solicitors',
+      logo: '/images/partners/morgan-has-solicitors.png',
+    },
+    {
+      name: 'FoodArt UK Limited',
+      logo: '/images/partners/foodart-uk.png',
+    },
+    {
+      name: 'Gama',
+      logo: '/images/partners/gama.png',
+    },
+    {
+      name: 'Hackney Showroom',
+      logo: '/images/partners/hackney-showroom.png',
+    },
+    {
+      name: 'Union Chapel',
+      logo: '/images/partners/union-chapel.png',
+    },
+    {
+      name: 'Millfield Theatre',
+      logo: '/images/partners/millfield-theatre.png',
+    },
+    {
+      name: 'Sütdiyari',
+      logo: '/images/partners/sutdiyari.png',
+    },
+    {
+      name: 'WAVA Design',
+      logo: '/images/partners/wava-design.png',
+    },
+    {
+      name: 'Yum Yum Thai Cuisine',
+      logo: '/images/partners/yumyum-thai.png',
     },
   ];
 
   return (
-    <section className="py-12 bg-secondary/20">
+    <section className="py-10">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-8">
-          <h3 className="font-heading text-2xl font-semibold text-muted-foreground">
-            Our Partners & Supporters
-          </h3>
-        </div>
+        <div className="bg-gradient-to-br from-primary/10 via-card/50 to-secondary/10 rounded-2xl p-12 border border-border/60">
+          <div className="text-center mb-8">
+            <h3 className="font-heading text-2xl font-semibold text-foreground">
+              Our Partners & Supporters
+            </h3>
+          </div>
 
-        <div className="relative overflow-hidden">
-          <div className="flex space-x-12 animate-scroll hover:pause">
-            {/* First set of logos */}
-            {partners.map((partner, index) => (
-              <div
-                key={`first-${index}`}
-                className="flex-shrink-0 flex items-center justify-center w-40 h-20 bg-background/50 rounded-lg border border-border/30 hover:border-primary/30 transition-colors"
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
-                />
-              </div>
-            ))}
-            {/* Duplicate set for seamless loop */}
-            {partners.map((partner, index) => (
-              <div
-                key={`second-${index}`}
-                className="flex-shrink-0 flex items-center justify-center w-40 h-20 bg-background/50 rounded-lg border border-border/30 hover:border-primary/30 transition-colors"
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
-                />
-              </div>
-            ))}
+          <div className="relative overflow-hidden">
+            <div className="flex space-x-12 animate-scroll hover:pause">
+              {/* First set of logos */}
+              {partners.map((partner, index) => (
+                <div
+                  key={`first-${index}`}
+                  className="flex-shrink-0 flex items-center justify-center relative w-24 h-24 bg-background/50 rounded-3xl border border-border/30 hover:border-primary/30 transition-colors overflow-hidden backdrop-blur-sm"
+                >
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="relative z-10 w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
+                  />
+                  <img
+                    src={partner.logo}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-20 scale-150"
+                    aria-hidden="true"
+                  />
+                </div>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {partners.map((partner, index) => (
+                <div
+                  key={`second-${index}`}
+                  className="flex-shrink-0 flex items-center justify-center relative w-24 h-24 bg-background/50 rounded-3xl border border-border/30 hover:border-primary/30 transition-colors overflow-hidden backdrop-blur-sm"
+                >
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="relative z-10 w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
+                  />
+                  <img
+                    src={partner.logo}
+                    alt=""
+                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-20 scale-150"
+                    aria-hidden="true"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

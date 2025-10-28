@@ -20,20 +20,20 @@
   --popover: 220 16% 24%;
   --popover-foreground: 210 33% 96%;
 
-    /* Primary - Neon Pink */
-    --primary: 330 100% 65%;
+    /* Primary - Neon Pink (slightly darker for accessibility) */
+    --primary: 330 90% 60%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary - Lime Yellow (#dae45f) */
+    /* Secondary - Lime Yellow (for subtle accents only) */
   --secondary: 64 72% 62%;
   --secondary-foreground: 220 18% 18%;
 
-    /* Muted */
-  --muted: 220 14% 40%;
+    /* Muted - Soft neutral gray */
+  --muted: 220 10% 35%;
   --muted-foreground: 210 26% 80%;
 
-    /* Accent */
-    --accent: 330 100% 65%;
+    /* Accent - Use sparingly for hover states */
+    --accent: 330 90% 60%;
     --accent-foreground: 0 0% 100%;
 
     /* Destructive */
@@ -43,21 +43,29 @@
     /* Borders & Inputs */
   --border: 220 14% 32%;
   --input: 220 14% 32%;
-    --ring: 330 100% 65%;
+    --ring: 330 90% 60%;
+    
+    /* Divider - Soft neutral for subtle separation */
+    --divider: 220 10% 35%;
 
     /* Design System Tokens */
     --radius: 0.375rem;
     
-    /* Icon Color */
-    --icon-color: #dae45f;
+    /* Icon Color - Lime yellow for subtle accents */
+    --icon-color: hsl(64, 72%, 62%);
+    
+    /* Brand Accent - Deep plum for overlays */
+    --brand-accent: 320 20% 20%;
     
     /* Custom Gradients */
-  --gradient-hero: linear-gradient(135deg, hsl(220 20% 24%), hsl(220 18% 16%));
-  --gradient-spotlight: linear-gradient(45deg, hsl(330 100% 65% / 0.28), hsl(330 100% 70% / 0.2));
+  --gradient-hero: linear-gradient(135deg, hsl(220, 18%, 18%) 0%, hsl(330, 100%, 10%) 100%);
+  --gradient-spotlight: linear-gradient(45deg, hsl(330 90% 60% / 0.28), hsl(330 90% 65% / 0.2));
   --gradient-card: linear-gradient(145deg, hsl(220 16% 26%), hsl(220 16% 32%));
+  --gradient-overlay: linear-gradient(180deg, hsl(320 20% 20% / 0.8), hsl(220 18% 18% / 0.95));
     
-    /* Shadows */
-  --shadow-glow: 0 0 28px hsl(330 100% 65% / 0.38);
+    /* Shadows with neon glow */
+  --shadow-glow: 0 0 28px hsl(330 90% 60% / 0.38);
+  --shadow-glow-hover: 0 0 40px hsl(330 90% 60% / 0.6);
   --shadow-card: 0 16px 34px -16px hsl(220 45% 8% / 0.45);
   --shadow-dramatic: 0 28px 48px -18px hsl(220 48% 6% / 0.52);
     
@@ -67,12 +75,12 @@
 
   --sidebar-background: 220 16% 24%;
   --sidebar-foreground: 210 33% 96%;
-    --sidebar-primary: 330 90% 62%;
+    --sidebar-primary: 330 90% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 220 14% 30%;
   --sidebar-accent-foreground: 210 33% 96%;
   --sidebar-border: 220 14% 32%;
-    --sidebar-ring: 330 100% 65%;
+    --sidebar-ring: 330 90% 60%;
   }
 
   /* Light mode variant */
@@ -83,17 +91,18 @@
     --card-foreground: 215 18% 18%;
     --popover: 0 0% 100%;
     --popover-foreground: 215 18% 18%;
-    --primary: 330 100% 65%;
+    --primary: 330 90% 60%;
     --primary-foreground: 0 0% 100%;
     --secondary: 210 16% 92%;
     --secondary-foreground: 215 18% 18%;
     --muted: 210 16% 90%;
     --muted-foreground: 215 12% 35%;
-    --accent: 330 100% 65%;
+    --accent: 330 90% 60%;
     --accent-foreground: 0 0% 100%;
     --border: 210 16% 85%;
     --input: 210 16% 85%;
-    --ring: 330 100% 65%;
+    --ring: 330 90% 60%;
+    --divider: 210 16% 85%;
   }
 }
 
@@ -141,15 +150,16 @@
     @apply text-xl md:text-2xl font-light text-foreground/70;
   }
   
-  /* Button Variants */
+  /* Button Variants with neon glow */
   .btn-spotlight {
     @apply relative overflow-hidden bg-primary text-primary-foreground;
     box-shadow: var(--shadow-glow);
     border-radius: 0.375rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .btn-spotlight:hover {
-    box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    box-shadow: var(--shadow-glow-hover);
     transform: translateY(-2px);
   }
   
@@ -166,13 +176,50 @@
     box-shadow: var(--shadow-dramatic);
   }
   
-  /* Navigation */
+  /* Navigation with subtle accents */
   .nav-backdrop {
     @apply backdrop-blur-md bg-background/90 border-b border-border/60;
   }
   
-  /* Icon Styling */
+  .nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: hsl(var(--secondary));
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  /* Icon Styling with lime accent */
   svg, .icon {
     color: var(--icon-color);
+    transition: all 0.3s ease;
+  }
+  
+  svg:hover, .icon:hover {
+    filter: drop-shadow(0 0 8px hsl(64, 72%, 62%));
+  }
+  
+  /* Divider utility */
+  .divider {
+    background: hsl(var(--divider));
+    height: 1px;
+    width: 100%;
+  }
+  
+  /* Overlay utility for photography */
+  .photo-overlay {
+    background: var(--gradient-overlay);
   }
 }

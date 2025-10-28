@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -11,6 +11,62 @@ import {
 } from 'lucide-react';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      alert(`Thank you ${formData.firstName}! Your message has been sent. We'll get back to you soon.`);
+      
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Sorry, there was an error sending your message. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const faqs = [
     {
       question: "How do I audition for Pan Productions shows?",
@@ -34,7 +90,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background py-20">
       <div className="container mx-auto px-4">
         {/* Contact Form Section */}
-        <div className="max-w-3xl mx-auto mb-20">
+        <div className="mb-20">
           <div className="text-center mb-12">
             <h1 className="text-5xl font-heading font-bold mb-6 text-foreground">
               Contact <span className="text-primary">Us</span>
@@ -46,31 +102,67 @@ const Contact = () => {
 
           <Card>
             <CardContent className="p-8">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="Enter your first name" className="mt-1" />
+                    <Input 
+                      id="firstName" 
+                      placeholder="Enter your first name" 
+                      className="mt-1"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      required
+                    />
                   </div>
                   <div>
                     <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Enter your last name" className="mt-1" />
+                    <Input 
+                      id="lastName" 
+                      placeholder="Enter your last name" 
+                      className="mt-1"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      required
+                    />
                   </div>
                 </div>
                 
                 <div>
                   <Label htmlFor="email">Email Address</Label>
-                  <Input id="email" type="email" placeholder="Enter your email" className="mt-1" />
+                  <Input 
+                    id="email" 
+                    type="email" 
+                    placeholder="Enter your email" 
+                    className="mt-1"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
                 
                 <div>
                   <Label htmlFor="phone">Phone Number (Optional)</Label>
-                  <Input id="phone" type="tel" placeholder="Enter your phone number" className="mt-1" />
+                  <Input 
+                    id="phone" 
+                    type="tel" 
+                    placeholder="Enter your phone number" 
+                    className="mt-1"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                  />
                 </div>
                 
                 <div>
                   <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="What is this about?" className="mt-1" />
+                  <Input 
+                    id="subject" 
+                    placeholder="What is this about?" 
+                    className="mt-1"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
                 
                 <div>
@@ -79,12 +171,15 @@ const Contact = () => {
                     id="message" 
                     placeholder="Tell us how we can help you..."
                     className="mt-1 min-h-40"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
                   />
                 </div>
                 
-                <Button className="w-full" size="lg">
+                <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
                   <Send className="mr-2 h-4 w-4" />
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </CardContent>
@@ -92,7 +187,7 @@ const Contact = () => {
         </div>
 
         {/* FAQ Section */}
-        <div className="max-w-4xl mx-auto">
+        <div className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-heading font-bold mb-4 text-foreground">
               Frequently Asked Questions

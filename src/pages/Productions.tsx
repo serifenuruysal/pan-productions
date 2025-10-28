@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Calendar, MapPin, Clock, Ticket } from 'lucide-react';
 import NewsletterSection from '@/components/NewsletterSection';
 
@@ -292,62 +293,75 @@ const Productions = () => {
       </section>
 
       <div className="container mx-auto px-4 py-16">
+        {/* Tabs for Categories */}
+        <Tabs defaultValue="theater" className="w-full">
+          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 mb-12">
+            <TabsTrigger value="theater" className="text-lg">THEATER</TabsTrigger>
+            <TabsTrigger value="music" className="text-lg">MUSIC</TabsTrigger>
+            <TabsTrigger value="art" className="text-lg">ART</TabsTrigger>
+            <TabsTrigger value="film" className="text-lg">FILM</TabsTrigger>
+          </TabsList>
 
-        {/* Theatre Category */}
-        {categories.theatre.length > 0 && (
-          <div className="mb-16">
-            <h2 className="font-heading text-4xl font-bold mb-8 flex items-center">
-              <span className="text-primary">THEATER</span>
-            </h2>
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-              {categories.theatre.map((production) => (
-                <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
-              ))}
-            </div>
-          </div>
-        )}
+          {/* Theater Tab */}
+          <TabsContent value="theater">
+            {categories.theatre.length > 0 ? (
+              <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                {categories.theatre.map((production) => (
+                  <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-16">
+                <p className="text-muted-foreground text-lg">No theater productions available at the moment.</p>
+              </div>
+            )}
+          </TabsContent>
 
-        {/* Art Category */}
-        {categories.art.length > 0 && (
-          <div className="mb-16">
-            <h2 className="font-heading text-4xl font-bold mb-8 flex items-center">
-              <span className="text-primary">ART</span>
-            </h2>
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-              {categories.art.map((production) => (
-                <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
-              ))}
-            </div>
-          </div>
-        )}
+          {/* Art Tab */}
+          <TabsContent value="art">
+            {categories.art.length > 0 ? (
+              <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                {categories.art.map((production) => (
+                  <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-16">
+                <p className="text-muted-foreground text-lg">No art productions available at the moment.</p>
+              </div>
+            )}
+          </TabsContent>
 
-        {/* Music Category */}
-        {categories.music.length > 0 && (
-          <div className="mb-16">
-            <h2 className="font-heading text-4xl font-bold mb-8 flex items-center">
-              <span className="text-primary">MUSIC</span>
-            </h2>
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-              {categories.music.map((production) => (
-                <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
-              ))}
-            </div>
-          </div>
-        )}
+          {/* Music Tab */}
+          <TabsContent value="music">
+            {categories.music.length > 0 ? (
+              <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                {categories.music.map((production) => (
+                  <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-16">
+                <p className="text-muted-foreground text-lg">No music productions available at the moment.</p>
+              </div>
+            )}
+          </TabsContent>
 
-        {/* Film Category */}
-        {categories.film.length > 0 && (
-          <div className="mb-16">
-            <h2 className="font-heading text-4xl font-bold mb-8 flex items-center">
-              <span className="text-primary">FILM</span>
-            </h2>
-            <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-              {categories.film.map((production) => (
-                <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
-              ))}
-            </div>
-          </div>
-        )}
+          {/* Film Tab */}
+          <TabsContent value="film">
+            {categories.film.length > 0 ? (
+              <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+                {categories.film.map((production) => (
+                  <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-16">
+                <p className="text-muted-foreground text-lg">No film productions available at the moment.</p>
+              </div>
+            )}
+          </TabsContent>
+        </Tabs>
 
         {/* Call to Action */}
         <div className="text-center mt-16 p-8 rounded-lg bg-card/50">
