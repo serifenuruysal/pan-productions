@@ -222,4 +222,20 @@
   .photo-overlay {
     background: var(--gradient-overlay);
   }
+  
+  /* Logo color control - Apply filter to change logo color */
+  .logo-image {
+    /* Change the logo to neon pink color */
+    filter: brightness(0) saturate(100%) invert(42%) sepia(93%) saturate(4441%) hue-rotate(314deg) brightness(98%) contrast(92%);
+  }
+  
+  /* Alternative: White logo */
+  .logo-image-white {
+    filter: brightness(0) invert(1);
+  }
+  
+  /* Alternative: Lime yellow logo */
+  .logo-image-lime {
+    filter: brightness(0) saturate(100%) invert(91%) sepia(27%) saturate(1326%) hue-rotate(18deg) brightness(96%) contrast(91%);
+  }
 }

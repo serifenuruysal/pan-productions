@@ -41,9 +41,9 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center ml-8">
             <img
-              src="/images/pan-logo.svg"
+              src="/images/pan-logo.png"
               alt="Pan Productions"
-              className="h-28 w-auto transition-transform hover:scale-105"
+              className="h-28 w-auto transition-transform hover:scale-105 rounded-lg py-4"
             />
           </Link>
 

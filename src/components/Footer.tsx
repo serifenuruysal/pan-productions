@@ -28,9 +28,9 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-4 mb-6">
               <img
-                src="/images/pan-logo.svg"
+                src="/images/pan-logo.png"
                 alt="Pan Productions"
-                className="h-12 w-auto drop-shadow-md"
+                className="h-12 w-auto drop-shadow-md rounded-lg py-2"
               />
               <div>
                 <p className="uppercase text-xs font-semibold tracking-[0.3em] text-primary">Pan Productions</p>
