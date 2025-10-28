@@ -51,12 +51,24 @@ module.exports = async function handler(req, res) {
             currency: 'gbp',
             product_data: {
               name: ticketName || 'Theatre Ticket – Hamlet Show',
+              description: 'Pan Productions Theatre Ticket',
             },
             unit_amount: unitAmount,
           },
           quantity: quantity || 1,
         },
       ],
+      // Collect customer email for receipt
+      customer_email: req.body.email || undefined,
+      billing_address_collection: 'auto',
+      // Enable automatic tax calculation if needed
+      automatic_tax: { enabled: false },
+      // Customer can enter email if not provided
+      customer_creation: 'always',
+      // Receipt email will be sent to customer email
+      payment_intent_data: {
+        receipt_email: req.body.email || undefined,
+      },
       success_url: `${frontendUrl}/payment-success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${frontendUrl}/payment-cancelled`,
     });

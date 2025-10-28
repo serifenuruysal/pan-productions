@@ -1,10 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { XCircle, ArrowLeft, HelpCircle } from 'lucide-react';
 
 const PaymentCancelled = () => {
+  const navigate = useNavigate();
+  const [countdown, setCountdown] = useState(10);
+
+  useEffect(() => {
+    // Countdown timer
+    const timer = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          navigate('/');
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [navigate]);
+
   return (
     <div className="min-h-screen bg-background flex items-center justify-center py-20">
       <div className="container mx-auto px-4">
@@ -18,8 +37,11 @@ const PaymentCancelled = () => {
                 <h1 className="text-4xl font-heading font-bold mb-4 text-foreground">
                   Payment Cancelled
                 </h1>
-                <p className="text-xl text-muted-foreground mb-8">
+                <p className="text-xl text-muted-foreground mb-4">
                   Your payment was cancelled. No charges have been made to your card.
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Redirecting to home page in <span className="font-bold text-primary">{countdown}</span> seconds...
                 </p>
               </div>
 
@@ -47,7 +69,7 @@ const PaymentCancelled = () => {
                 </Link>
                 <Link to="/">
                   <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                    Back to Home
+                    Back to Home Now
                   </Button>
                 </Link>
               </div>
