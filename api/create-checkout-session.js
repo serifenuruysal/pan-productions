@@ -1,4 +1,5 @@
 // Vercel Serverless Function for Stripe Checkout
+// Updated to ensure environment variables are loaded
 
 module.exports = async function handler(req, res) {
   // Enable CORS
