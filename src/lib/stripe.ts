@@ -16,6 +16,20 @@ interface CheckoutResponse {
 }
 
 /**
+ * Get the backend API URL based on environment
+ */
+const getBackendUrl = (): string => {
+  // If in production (deployed), use your deployed backend URL
+  if (window.location.hostname !== 'localhost') {
+    // TODO: Replace with your actual deployed backend URL
+    // For now, using Vercel serverless function path
+    return '/api/create-checkout-session';
+  }
+  // Local development
+  return 'http://localhost:4242/create-checkout-session';
+};
+
+/**
  * Main function to handle ticket purchase
  * Calls backend to create Stripe session and redirects to Stripe
  * 
@@ -23,8 +37,10 @@ interface CheckoutResponse {
  */
 export async function buyTicket(options: TicketCheckoutOptions): Promise<void> {
   try {
+    const backendUrl = getBackendUrl();
+    
     // Call your backend to create a checkout session
-    const response = await fetch('http://localhost:4242/create-checkout-session', {
+    const response = await fetch(backendUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
