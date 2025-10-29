@@ -8,11 +8,26 @@ interface SubscribeResponse {
 
 /**
  * Subscribe a user to the newsletter
- * This function sends the email to your backend API endpoint
+ * Now using Mailchimp for subscriber management
  */
 export async function subscribeToNewsletter(email: string): Promise<SubscribeResponse> {
   try {
-    const response = await fetch('/api/newsletter-subscribe', {
+    // For local development, use mock success (Mailchimp CORS blocks browser calls)
+    if (import.meta.env.DEV) {
+      console.log('🔔 Local Dev Mode: Newsletter subscription would be sent to:', email);
+      console.log('📧 Email will be added to Mailchimp when deployed to production');
+      
+      // Simulate API delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      return {
+        success: true,
+        message: '✅ Local test successful! Email will be added to Mailchimp in production.',
+      };
+    }
+    
+    // For production, use serverless function
+    const response = await fetch('/api/mailchimp-subscribe', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
