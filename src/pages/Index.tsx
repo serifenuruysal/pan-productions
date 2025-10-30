@@ -435,7 +435,7 @@ const Index = () => {
               </span>
             </div>
             <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              What People Say
+              Testimonials
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Hear from our audience and students about their experiences

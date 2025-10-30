@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import NewsletterSection from '@/components/NewsletterSection';
 import { 
   Clock, 
@@ -30,6 +31,7 @@ const Workshops = () => {
       level: "All Levels",
       spots: null,
       status: "Completed",
+      category: "THEATER",
       description: "Oyunculukta Kişisel Envantere Yolculuk (Journey to Personal Inventory in Acting) - A workshop focused on 'staying in the moment' for actors. Based on Role Playing, this workshop helps actors maintain presence in the reality of the moment. Open to actors and actor candidates, limited to 6 participants. Berrin Şeker Civil shares over 20 years of experience in camera and theatre acting.",
       image: "https://www.panproductions.co.uk/file/2019/10/PAN-WORKSHOPArtboard-0-724x1024.jpg",
       contact: "workshop@panproductions.co.uk",
@@ -45,6 +47,7 @@ const Workshops = () => {
       level: "Children",
       spots: null,
       status: "Completed",
+      category: "THEATER",
       description: "PAN Creative Drama Workshop for Children. Creative drama education based on improvisation directly impacts children's personal development and creativity. Through learning by doing and experiencing, children develop imagination, communication skills, self-confidence, empathy, critical thinking, and responsibility in a free and supportive environment.",
       image: "/images/drama-cocuk-workshop.jpg",
       contact: "drama@panproductions.co.uk",
@@ -60,6 +63,7 @@ const Workshops = () => {
       level: "All Levels",
       spots: null,
       status: "Completed",
+      category: "THEATER",
       description: "Acting is an art form that requires complete awareness of the body. Training in movement techniques allows us to acquire a range of physical skills. Join us if you are a performer, director, writer or artist interested in movement skills and choreography. Dr. Selçuk Göldere, a performance-maker, educator and researcher, will share his experience in theatre and contemporary dance stretching over 25 years.",
       image: "/images/movement-acting-workshop.jpg",
       contact: "freeworkshop@panproductions.co.uk",
@@ -176,34 +180,45 @@ const Workshops = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {pastWorkshops.map((workshop, index) => (
-              <Card key={index} className="group overflow-hidden cursor-pointer" onClick={() => setSelectedImage(workshop.image)}>
-                <div className="relative h-[500px] overflow-hidden">
-                  {/* Blurred background layer */}
-                  <div className="absolute inset-0">
-                    <img 
-                      src={workshop.image} 
-                      alt=""
-                      className="w-full h-full object-cover blur-2xl opacity-40 scale-110"
-                    />
-                  </div>
-                  
-                  {/* Main image layer */}
-                  <div className="absolute inset-0 flex items-center justify-center p-4">
-                    <img 
-                      src={workshop.image} 
-                      alt={workshop.title}
-                      className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent transition-colors" />
-                  
-                  {/* Status Badges */}
-                  <div className="absolute top-4 right-4 flex gap-2 flex-wrap justify-end z-10">
-                    <Badge className="bg-gray-500/90 hover:bg-gray-600 text-white">
-                      {workshop.status}
+          {/* Category Tabs */}
+          <Tabs defaultValue="theater" className="w-full">
+            <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 mb-12">
+              <TabsTrigger value="theater" className="text-lg font-heading">THEATER</TabsTrigger>
+              <TabsTrigger value="music" className="text-lg font-heading">MUSIC</TabsTrigger>
+              <TabsTrigger value="art" className="text-lg font-heading">ART</TabsTrigger>
+              <TabsTrigger value="film" className="text-lg font-heading">FILM</TabsTrigger>
+            </TabsList>
+
+            {/* Theater Tab */}
+            <TabsContent value="theater">
+              <div className="grid md:grid-cols-2 gap-8">
+                {pastWorkshops.filter(w => w.category === 'THEATER').map((workshop, index) => (
+                  <Card key={index} className="group overflow-hidden cursor-pointer" onClick={() => setSelectedImage(workshop.image)}>
+                    <div className="relative h-[500px] overflow-hidden">
+                      {/* Blurred background layer */}
+                      <div className="absolute inset-0">
+                        <img 
+                          src={workshop.image} 
+                          alt=""
+                          className="w-full h-full object-cover blur-2xl opacity-40 scale-110"
+                        />
+                      </div>
+                      
+                      {/* Main image layer */}
+                      <div className="absolute inset-0 flex items-center justify-center p-4">
+                        <img 
+                          src={workshop.image} 
+                          alt={workshop.title}
+                          className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                        />
+                      </div>
+                      
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent transition-colors" />
+                      
+                      {/* Status Badges */}
+                      <div className="absolute top-4 right-4 flex gap-2 flex-wrap justify-end z-10">
+                        <Badge className="bg-gray-500/90 hover:bg-gray-600 text-white">
+                          {workshop.status}
                     </Badge>
                     {workshop.price === "Free" && (
                       <Badge className="bg-green-500/90 hover:bg-green-600 text-white">
@@ -273,7 +288,30 @@ const Workshops = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
+              </div>
+            </TabsContent>
+
+            {/* Music Tab */}
+            <TabsContent value="music">
+              <div className="text-center py-16">
+                <p className="text-muted-foreground text-lg">No music workshops available at the moment.</p>
+              </div>
+            </TabsContent>
+
+            {/* Art Tab */}
+            <TabsContent value="art">
+              <div className="text-center py-16">
+                <p className="text-muted-foreground text-lg">No art workshops available at the moment.</p>
+              </div>
+            </TabsContent>
+
+            {/* Film Tab */}
+            <TabsContent value="film">
+              <div className="text-center py-16">
+                <p className="text-muted-foreground text-lg">No film workshops available at the moment.</p>
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 
@@ -302,7 +340,7 @@ const Workshops = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact">
               <Button size="lg" className="px-8">
-                Custom Workshop Request
+                Contact Us
               </Button>
             </Link>
             <Link to="/contact">

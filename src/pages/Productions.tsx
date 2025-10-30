@@ -293,71 +293,61 @@ const Productions = () => {
       </section>
 
       <div className="container mx-auto px-4 py-16">
-        {/* Tabs for Categories */}
-        <Tabs defaultValue="theater" className="w-full">
-          <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 mb-12">
-            <TabsTrigger value="theater" className="text-lg">THEATER</TabsTrigger>
-            <TabsTrigger value="music" className="text-lg">MUSIC</TabsTrigger>
-            <TabsTrigger value="art" className="text-lg">ART</TabsTrigger>
-            <TabsTrigger value="film" className="text-lg">FILM</TabsTrigger>
+        {/* Status Tabs - combining all categories */}
+        <Tabs defaultValue="past" className="w-full">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-12">
+            <TabsTrigger value="current" className="text-lg font-bold uppercase font-heading">Current</TabsTrigger>
+            <TabsTrigger value="upcoming" className="text-lg font-bold uppercase font-heading">Upcoming</TabsTrigger>
+            <TabsTrigger value="past" className="text-lg font-bold uppercase font-heading">Past</TabsTrigger>
           </TabsList>
 
-          {/* Theater Tab */}
-          <TabsContent value="theater">
-            {categories.theatre.length > 0 ? (
+          <TabsContent value="current">
+            {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
+              .filter(p => p.status === 'Current').length > 0 ? (
               <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                {categories.theatre.map((production) => (
-                  <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
-                ))}
+                {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
+                  .filter(p => p.status === 'Current')
+                  .map((production) => (
+                    <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
+                  ))}
               </div>
             ) : (
               <div className="text-center py-16">
-                <p className="text-muted-foreground text-lg">No theater productions available at the moment.</p>
+                <p className="text-muted-foreground text-lg">No current productions at the moment.</p>
               </div>
             )}
           </TabsContent>
 
-          {/* Art Tab */}
-          <TabsContent value="art">
-            {categories.art.length > 0 ? (
+          <TabsContent value="upcoming">
+            {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
+              .filter(p => p.status === 'Upcoming').length > 0 ? (
               <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                {categories.art.map((production) => (
-                  <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
-                ))}
+                {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
+                  .filter(p => p.status === 'Upcoming')
+                  .map((production) => (
+                    <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
+                  ))}
               </div>
             ) : (
               <div className="text-center py-16">
-                <p className="text-muted-foreground text-lg">No art productions available at the moment.</p>
+                <p className="text-muted-foreground text-lg">No upcoming productions at the moment.</p>
               </div>
             )}
           </TabsContent>
 
-          {/* Music Tab */}
-          <TabsContent value="music">
-            {categories.music.length > 0 ? (
+          <TabsContent value="past">
+            {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
+              .filter(p => p.status === 'Past').length > 0 ? (
               <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                {categories.music.map((production) => (
-                  <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
-                ))}
+                {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
+                  .filter(p => p.status === 'Past')
+                  .map((production) => (
+                    <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
+                  ))}
               </div>
             ) : (
               <div className="text-center py-16">
-                <p className="text-muted-foreground text-lg">No music productions available at the moment.</p>
-              </div>
-            )}
-          </TabsContent>
-
-          {/* Film Tab */}
-          <TabsContent value="film">
-            {categories.film.length > 0 ? (
-              <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
-                {categories.film.map((production) => (
-                  <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} />
-                ))}
-              </div>
-            ) : (
-              <div className="text-center py-16">
-                <p className="text-muted-foreground text-lg">No film productions available at the moment.</p>
+                <p className="text-muted-foreground text-lg">No past productions available.</p>
               </div>
             )}
           </TabsContent>

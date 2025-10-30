@@ -84,16 +84,16 @@ const Contact = () => {
       answer: "Audition information is posted on our Productions page and social media. We typically hold open auditions 6-8 weeks before each production begins rehearsals."
     },
     {
-      question: "Do you offer scholarships for Pan Academy programs?",
-      answer: "Yes, we offer need-based scholarships for our workshop and lesson programs. Contact our Academy team for more information about eligibility and applications."
+      question: "How can I stay updated on upcoming shows and workshops?",
+      answer: "Subscribe to our newsletter, follow us on social media and check our website regularly for the latest show announcements and ticket information."
     },
     {
-      question: "Can I hire your venue for private events?",
-      answer: "Our studio space is available for hire during non-production periods. Please contact our bookings team for availability and rates."
+      question: "What are the entry requirements for your workshops?",
+      answer: "Our only requirement is enthusiasm and an interest in theatre. Previous training is not needed."
     },
     {
-      question: "How can I stay updated on upcoming shows?",
-      answer: "Subscribe to our newsletter, follow us on social media, or check our Productions page regularly for the latest show announcements and ticket information."
+      question: "Can I stage an original piece that I wrote?",
+      answer: "Absolutely! Contact us at hello@panproductions.co.uk and our team will be in touch to further discuss things."
     }
   ];
 

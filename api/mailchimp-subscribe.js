@@ -80,7 +80,7 @@ module.exports = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      message: 'Successfully subscribed! Check your email for confirmation.'
+      message: 'Successfully subscribed to our newsletter! 🎭'
     });
 
   } catch (error) {

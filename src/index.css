@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Nunito+Sans:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -70,8 +70,8 @@
   --shadow-dramatic: 0 28px 48px -18px hsl(220 48% 6% / 0.52);
     
     /* Typography Scale */
-    --font-heading: 'Poppins', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Cormorant Garamond', 'Libre Baskerville', serif;
+    --font-body: 'Nunito Sans', sans-serif;
 
   --sidebar-background: 220 16% 24%;
   --sidebar-foreground: 210 33% 96%;
@@ -133,8 +133,12 @@
     z-index: 0;
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+  h1, h2, h3 {
+    @apply font-heading capitalize;
+  }
+  
+  h4, h5, h6 {
+    @apply font-heading uppercase;
   }
 }
 

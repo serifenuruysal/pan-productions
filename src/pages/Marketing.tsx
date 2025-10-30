@@ -87,8 +87,7 @@ const Marketing = () => {
               Amplify Your Creative Vision
             </h2>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Professional marketing and PR services designed specifically for theatre, arts, and cultural productions. 
-              We help you connect with your audience and maximize your impact.
+              Pan Productions provides bespoke PR & Marketing strategies and support on a project basis in theatre, music and exhibitions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
@@ -139,43 +138,12 @@ const Marketing = () => {
         </div>
       </section>
 
-      {/* Achievements Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-heading font-bold mb-4 text-foreground">Our Track Record</h2>
-            <p className="text-xl text-muted-foreground">
-              Numbers that speak to our marketing excellence
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl font-heading font-bold text-primary mb-2">
-                  {achievement.number}
-                </div>
-                <div className="text-lg font-semibold text-foreground mb-2">
-                  {achievement.label}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  {achievement.description}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary/10 to-secondary/10">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-heading font-bold mb-6 text-foreground">
             Ready to Promote Your Production?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Let's work together to create a marketing campaign that gets your production the attention it deserves.
-          </p>
           <Link to="/contact">
             <Button size="lg" className="px-8">
               Get in Touch
