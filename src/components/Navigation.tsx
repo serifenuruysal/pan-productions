@@ -118,10 +118,10 @@ const Navigation = () => {
             {/* Language Toggle */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="flex items-center space-x-1 hover:text-primary" style={{ color: '#dae45f' }}>
-                  <Globe className="h-4 w-4" />
+                <Button variant="ghost" size="sm" className="flex items-center space-x-1 text-white hover:text-primary">
+                  <Globe className="h-4 w-4 text-white" />
                   <span className="font-medium">{language}</span>
-                  <ChevronDown className="h-3 w-3" />
+                  <ChevronDown className="h-3 w-3 text-white" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent 
