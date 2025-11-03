@@ -45,15 +45,9 @@ const About = () => {
       <section className="relative py-20 bg-gradient-to-br from-primary/10 via-background to-secondary/5">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
-            <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 text-sm px-4 py-1">
-              {t('about.founded')}
-            </Badge>
             <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
               {t('about.heroTitle')}
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              {t('about.heroSubtitle')}
-            </p>
           </div>
         </div>
       </section>
@@ -81,6 +75,9 @@ const About = () => {
                   </p>
                   <p>
                     {t('about.historyP3')}
+                  </p>
+                  <p>
+                    {t('about.historyP4')}
                   </p>
                 </div>
               </div>
@@ -170,6 +167,9 @@ const About = () => {
                     <p>
                       {t('about.missionP2')}
                     </p>
+                    <p>
+                      {t('about.missionP3')}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -192,6 +192,9 @@ const About = () => {
                     </p>
                     <p>
                       {t('about.visionP2')}
+                    </p>
+                    <p>
+                      {t('about.visionP3')}
                     </p>
                   </div>
                 </CardContent>

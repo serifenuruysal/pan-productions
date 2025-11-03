@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import NewsletterSection from '@/components/NewsletterSection';
+import SEO from '@/components/SEO';
 import { 
   Clock, 
   Users, 
@@ -114,6 +115,13 @@ const Lessons = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Private Acting Lessons | Pan Academy London"
+        description="Personalized one-on-one acting lessons with industry professionals. Private coaching in drama, voice, movement, and performance techniques at Pan Academy."
+        keywords="private acting lessons London, one-on-one drama coaching, personalized acting training, Pan Academy lessons, private theatre tuition"
+        url="/academy/lessons"
+      />
+      
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-primary/10 via-background to-secondary/5">
         <div className="container mx-auto px-4">

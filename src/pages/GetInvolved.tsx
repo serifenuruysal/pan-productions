@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import NewsletterSection from '@/components/NewsletterSection';
+import SEO from '@/components/SEO';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { 
   Heart, 
@@ -136,6 +137,13 @@ const GetInvolved = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Get Involved | Support Pan Productions Theatre London"
+        description="Join Pan Productions community. Volunteer, donate, or partner with us to support theatre arts in London. Multiple ways to get involved and make a difference."
+        keywords="volunteer theatre London, support Pan Productions, theatre donations, cultural partnerships, community theatre"
+        url="/get-involved"
+      />
+      
       {/* Hero Section */}
       <section className="relative py-20 bg-gradient-to-br from-primary/10 via-background to-secondary/5">
         <div className="container mx-auto px-4">

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import NewsletterSection from '@/components/NewsletterSection';
+import SEO from '@/components/SEO';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { 
   Target, 
@@ -71,6 +72,13 @@ const Marketing = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="PR & Marketing Services | Pan Productions London"
+        description="Professional PR and marketing services for theatre, music, and exhibitions. Strategic marketing, content creation, and digital campaigns by Pan Productions."
+        keywords="theatre marketing, PR services London, event marketing, cultural marketing, Pan Productions marketing"
+        url="/marketing"
+      />
+      
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0">

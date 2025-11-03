@@ -8,10 +8,46 @@ const News = () => {
   const { t } = useLanguage();
   const newsItems = [
     {
+      title: "Review: The Importance of Being Earnest – played by immigrants at Tower Theatre",
+      image: "/images/news/importance-of-being-earnest-1.jpg",
+      link: "https://theblogoftheatrethings.com/2020/01/08/review-the-importance-of-being-earnest-played-by-immigrants-at-tower-theatre/",
+      description: "Theatre Things reviews Pan Productions' fresh take on Oscar Wilde's classic."
+    },
+    {
+      title: "Aylin Bozok: The Importance Of Being Earnest – Played By Immigrants",
+      image: "/images/news/importance-of-being-earnest-2.jpg",
+      link: "https://thisweekculture.com/article/aylin-bozok-the-importance-of-being-earnest-played-by-immigrants/",
+      description: "This Week Culture features Aylin Bozok's perspective on the production."
+    },
+    {
+      title: "A Cosmopolitan Spin on Oscar Wilde's Classic",
+      image: "/images/news/importance-of-being-earnest-3.jpg",
+      link: "https://bemyguest.org.uk/theatre/the-importance-of-being-earnest-tower-theatre/",
+      description: "A quintessentially English play is being given a fascinating and refreshingly cosmopolitan spin at the Tower Theatre with Pan Productions' new take."
+    },
+    {
+      title: "In London's (Off) West End 2020: The Importance of Being Earnest (Preview)",
+      image: "/images/news/importance-of-being-earnest-4.jpg",
+      link: "https://bakchormeeboy.com/2019/11/12/in-londons-off-west-end-2020-the-importance-of-being-earnest-played-by-immigrants-at-tower-theatre-preview/",
+      description: "Preview coverage of The Importance of Being Earnest played by immigrants at Tower Theatre."
+    },
+    {
+      title: "About The Importance Of Being Earnest",
+      image: "/images/news/importance-of-being-earnest-5.jpg",
+      link: "https://thetheatretimes.com/about-the-importance-of-being-earnest/",
+      description: "The Theatre Times explores Pan Productions' immigrant perspective on the classic play."
+    },
+    {
+      title: "The Importance of Being Earnest – Played by Immigrants",
+      image: "/images/news/importance-of-being-earnest-6.jpg",
+      link: "https://www.londontheatre1.com/reviews/play/the-importance-of-being-earnest-played-by-immigrants/",
+      description: "London Theatre 1 reviews this groundbreaking production by Pan Productions."
+    },
+    {
       title: "Pan Productions at CPT Theatre",
       image: "/images/cpt-theatre.jpg",
       link: "https://cptheatre.co.uk/artists/Pan-Productions",
-      description: "Read about Pan Productions featured artists page at CPT Theatre"
+      description: "Read about Pan Productions featured artists page at CPT Theatre."
     }
   ];
 
