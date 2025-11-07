@@ -81,7 +81,9 @@ const PartnersCarousel = () => {
               aria-label="Partners and supporters"
               tabIndex={0}
             >
-              <div className="flex space-x-12 animate-scroll hover:pause min-w-max">
+        {/* On small screens we disable the auto-scrolling animation so users
+          can swipe manually; enable the marquee on md+ screens. */}
+        <div className="flex space-x-6 md:space-x-12 md:animate-scroll hover:pause min-w-max">
               {/* First set of logos */}
               {partners.map((partner, index) => (
                 <div

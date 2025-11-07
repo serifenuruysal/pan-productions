@@ -124,7 +124,9 @@ const Productions = () => {
           EN: 'A brilliant comedy of manners that sparkles with wit and theatrical invention.',
           TR: 'Zekâ ve tiyatral buluşlarla parlayan, görgü kuralları üzerine muhteşem bir komedi.'
         },
-        image: 'https://www.panproductions.co.uk/file/2019/11/earnest-tower.jpg',
+  // Prefer the canonical poster filename so you can drop the new
+  // poster into `public/images/importance-of-being-earnest.jpg`.
+  image: '/images/importance-of-being-earnest.jpg',
         dates: '6-18 January 2020',
         venue: 'Tower Theatre, 16 Northwold Road, Stoke Newington, London N16 7HR',
         duration: '2h 30min (including interval)',
@@ -223,7 +225,11 @@ const Productions = () => {
           EN: 'An intimate concert featuring legendary Turkish musicians Erkan Oğur and Bülent Ortaçgil.',
           TR: 'Efsanevi Türk müzisyenler Erkan Oğur ve Bülent Ortaçgil’in samimi konseri.'
         },
-        image: 'https://www.panproductions.co.uk/wp-content/uploads/2014/10/Pan_Productions_Erkan_Ogur1.jpg',
+        // Prefer a local poster file so it displays from this repository.
+        // Place the attached poster at: public/images/erkan-ogur-bulent.jpg
+        // If you'd like me to use a different filename, tell me and I will
+        // update this path accordingly.
+        image: '/images/erkan-ogur-bulent.jpg',
         dates: '27 November 2016, 19:00',
         venue: 'Islington Assembly Hall, Upper St, London N1 2UD',
         duration: 'Concert',

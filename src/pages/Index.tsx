@@ -201,7 +201,9 @@ const Index = () => {
                 status: t('index.featured.earnest.status'),
                 venue: language === 'EN' ? 'Tower Theatre' : 'Tower Theatre',
                 dates: language === 'EN' ? 'Various dates' : 'Çeşitli tarihler',
-                image: '/images/earnest-tower.jpg',
+                // Prefer the canonical poster filename so you can drop the new
+                // poster into `public/images/importance-of-being-earnest.jpg`.
+                image: '/images/importance-of-being-earnest.jpg',
                 description: t('index.featured.earnest.description')
               },
               {
