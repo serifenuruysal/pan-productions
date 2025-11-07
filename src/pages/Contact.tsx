@@ -10,7 +10,9 @@ import SEO from '@/components/SEO';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { 
   Send,
-  MessageCircle
+  MessageCircle,
+  MapPin,
+  Phone
 } from 'lucide-react';
 
 const Contact = () => {
@@ -121,9 +123,10 @@ const Contact = () => {
             </p>
           </div>
 
-          <Card>
-            <CardContent className="p-8">
-              <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="grid md:grid-cols-2 gap-8 items-start">
+            <Card>
+              <CardContent className="p-8">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="firstName">{t('contact.firstName')}</Label>
@@ -202,9 +205,36 @@ const Contact = () => {
                   <Send className="mr-2 h-4 w-4" />
                   {isSubmitting ? t('contact.sending') : t('contact.sendMessage')}
                 </Button>
-              </form>
-            </CardContent>
-          </Card>
+                </form>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/40 border-border/60">
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">{t('contact.title')}</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {t('contact.subtitle')}
+                </p>
+
+                <ul className="text-sm text-muted-foreground space-y-3">
+                  <li className="flex items-start gap-3">
+                    <MapPin className="h-4 w-4 mt-1 text-primary" />
+                    <span>
+                      Pan Productions<br />
+                      177 Whitecross Street<br />
+                      EC1Y 8QP
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Phone className="h-4 w-4 text-primary" />
+                    <a href="tel:+447961213849" className="hover:text-primary transition-colors">
+                      00 44 7961 213849
+                    </a>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         {/* FAQ Section */}

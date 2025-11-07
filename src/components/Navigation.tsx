@@ -20,7 +20,7 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   const navItems = [
-    { label: t('nav.home'), path: '/', icon: Home },
+    { label: '', path: '/', icon: Home },
     { label: t('nav.productions'), path: '/productions' },
     { label: t('nav.marketing'), path: '/marketing' },
     { label: t('nav.academy'), path: '/academy/workshops' },
@@ -59,8 +59,15 @@ const Navigation = () => {
                   )}
                   style={{ color: isItemActive ? undefined : '#dae45f' }}
                 >
-                  {item.icon && <item.icon className="h-5 w-5" />}
-                  <span>{item.label}</span>
+                  {item.icon && (
+                    <item.icon
+                      className={
+                        'h-5 w-5' +
+                        (item.path === '/' && isItemActive ? ' text-white' : '')
+                      }
+                    />
+                  )}
+                  {item.label && <span>{item.label}</span>}
                 </Link>
               );
             })}
@@ -115,8 +122,15 @@ const Navigation = () => {
                       )}
                       style={{ color: isItemActive ? undefined : '#dae45f' }}
                     >
-                      {item.icon && <item.icon className="h-4 w-4" />}
-                      <span>{item.label}</span>
+                      {item.icon && (
+                        <item.icon
+                          className={
+                            'h-4 w-4' +
+                            (item.path === '/' && isItemActive ? ' text-white' : '')
+                          }
+                        />
+                      )}
+                      {item.label && <span>{item.label}</span>}
                     </Link>
                   );
                 })}

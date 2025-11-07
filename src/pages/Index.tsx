@@ -27,7 +27,7 @@ import {
 } from 'lucide-react';
 
 const Index = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   // Structured data for organization
@@ -131,17 +131,12 @@ const Index = () => {
       <section className="py-24 relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-block mb-4">
-              <span className="px-4 py-2 rounded bg-primary/10 text-primary text-sm font-semibold tracking-wider uppercase border border-primary/20">
-                What We Offer
-              </span>
-            </div>
+            {/* ...existing code... */}
             <h2 className="font-heading text-5xl md:text-7xl font-bold mb-6 text-foreground tracking-tight">
-              Discover Pan Productions
+              {t('index.highlights.discoverTitle')}
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              From professional theatre productions to comprehensive drama education, 
-              we bring stories to life and nurture the next generation of performers.
+              {t('index.highlights.discoverDescription')}
             </p>
           </div>
 
@@ -174,7 +169,7 @@ const Index = () => {
                       </p>
                       
                       <div className="flex items-center text-primary font-semibold group-hover:gap-2 transition-all">
-                        <span>Explore More</span>
+                        <span>{t('index.highlights.exploreMore')}</span>
                         <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                       </div>
                     </div>
@@ -190,47 +185,44 @@ const Index = () => {
       <section className="py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-block mb-4">
-              <span className="px-4 py-2 rounded bg-primary/10 text-primary text-sm font-semibold tracking-wider uppercase border border-primary/20">
-                PAN ACADEMY
-              </span>
-            </div>
             <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              Featured Productions
+              {t('index.featuredTitle')}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Discover the stories that come alive on our stage.
+              {t('index.featuredDescription')}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {[
               {
-                title: "Tut Elimden Rovni",
-                subtitle: "Aziz Nesin",
-                status: "Past Production",
-                venue: "Rosemary Branch Theatre",
-                dates: "27-29 March 2024",
-                image: "/images/tut-elimden-rovni.jpg",
-                description: "A captivating theatrical performance - 'hayatı bir cambazlık gösterisi' (life is a juggling show)."
+                title: t('index.featured.earnest.title'),
+                subtitle: t('index.featured.earnest.subtitle'),
+                status: t('index.featured.earnest.status'),
+                venue: language === 'EN' ? 'Tower Theatre' : 'Tower Theatre',
+                dates: language === 'EN' ? 'Various dates' : 'Çeşitli tarihler',
+                image: '/images/earnest-tower.jpg',
+                description: t('index.featured.earnest.description')
               },
               {
-                title: "Ben Kolay Ölmem",
-                subtitle: "Ali Has",
-                status: "Past Production",
-                venue: "Arcola Theatre",
-                dates: "11-13 March 2019",
-                image: "/images/ben-kolay-olmem.jpg",
-                description: "A story of Cemal Süreya and Ahmed Arif - two poets, two lives, one story."
+                title: t('index.featured.workshop.title'),
+                subtitle: t('index.featured.workshop.subtitle'),
+                status: t('index.featured.workshop.status'),
+                venue: language === 'EN' ? 'Pan Academy' : 'Pan Akademi',
+                dates: language === 'EN' ? 'See workshop page' : 'Atölye sayfasına bakınız',
+                image: '/images/hero-slide-3.jpg',
+                description: t('index.featured.workshop.description')
               },
               {
-                title: "Ölüm ve Kız",
-                subtitle: "Ariel Dorfman",
-                status: "Past Production",
-                venue: "Arcola Theatre",
-                dates: "04/06/2017",
-                image: "/images/olum-ve-kiz.jpg",
-                description: "A gripping psychological thriller with English surtitles."
+                title: language === 'EN' ? 'Ben Kolay Ölmem' : 'Ben Kolay Ölmem',
+                subtitle: language === 'EN' ? 'Ali Has' : 'Ali Has',
+                status: language === 'EN' ? 'Past Production' : 'Geçmiş Prodüksiyon',
+                venue: language === 'EN' ? 'Arcola Theatre' : 'Arcola Tiyatrosu',
+                dates: language === 'EN' ? '11-13 March 2019' : '11-13 Mart 2019',
+                image: '/images/ben-kolay-olmem.jpg',
+                description: language === 'EN'
+                  ? 'A story of Cemal Süreya and Ahmed Arif - two poets, two lives, one story.'
+                  : 'Bir Cemal Süreya ve Ahmed Arif hikayesi - iki şair, iki yaşam, bir hikaye.'
               }
             ].map((production, index) => (
               <Card key={index} className="group overflow-hidden bg-card/50 border-border/60 hover:border-primary/40 transition-all">
@@ -295,47 +287,49 @@ const Index = () => {
       <section className="py-24 bg-gradient-to-br from-card/30 to-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="inline-block mb-4">
-              <span className="px-4 py-2 rounded bg-primary/10 text-primary text-sm font-semibold tracking-wider uppercase border border-primary/20">
-                PAN ACADEMY
-              </span>
-            </div>
+            {/* ...existing code... */}
             <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              Featured Workshops
+              {language === 'EN' ? 'Featured Workshops' : 'Öne Çıkan Atölyeler'}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Develop your skills with our expert-led workshops and training programs
+              {language === 'EN' ? 'Develop your skills with our expert-led workshops and training programs' : 'Uzman eğitmenler tarafından verilen atölye ve eğitim programlarımızla becerilerinizi geliştirin'}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {[
               {
-                title: "Theatre of the Oppressed",
-                instructor: "Augusto Boal",
-                status: "Completed",
-                venue: "Pan Academy, London",
-                dates: "Full Day Workshop",
-                image: "/images/boal-workshop.jpg",
-                description: "An intensive workshop exploring Augusto Boal's revolutionary Theatre of the Oppressed techniques."
+                title: language === 'EN' ? 'Theatre of the Oppressed' : 'Ezilenlerin Tiyatrosu',
+                instructor: 'Augusto Boal',
+                status: language === 'EN' ? 'Completed' : 'Tamamlandı',
+                venue: language === 'EN' ? 'Pan Academy, London' : 'Pan Akademi, Londra',
+                dates: language === 'EN' ? 'Full Day Workshop' : 'Tam Gün Atölye',
+                image: '/images/boal-workshop.jpg',
+                description: language === 'EN'
+                  ? "An intensive workshop exploring Augusto Boal's revolutionary Theatre of the Oppressed techniques."
+                  : 'Augusto Boal’ın Ezilenlerin Tiyatrosu tekniklerini irdeleyen yoğun bir atölye.'
               },
               {
-                title: "Mehmet Ergen Theatre Experience",
-                instructor: "Mehmet Ergen",
-                status: "Completed",
-                venue: "Pan Academy, London",
-                dates: "Weekend Intensive",
-                image: "/images/mehmet-ergen-workshop.jpg",
-                description: "A comprehensive theatre workshop with renowned director Mehmet Ergen."
+                title: language === 'EN' ? 'Mehmet Ergen Theatre Experience' : 'Mehmet Ergen ile Tiyatro Deneyimi',
+                instructor: 'Mehmet Ergen',
+                status: language === 'EN' ? 'Completed' : 'Tamamlandı',
+                venue: language === 'EN' ? 'Pan Academy, London' : 'Pan Akademi, Londra',
+                dates: language === 'EN' ? 'Weekend Intensive' : 'Hafta Sonu Yoğun Programı',
+                image: '/images/mehmet-ergen-workshop.jpg',
+                description: language === 'EN'
+                  ? 'A comprehensive theatre workshop with renowned director Mehmet Ergen.'
+                  : 'Ünlü yönetmen Mehmet Ergen ile kapsamlı bir tiyatro atölyesi.'
               },
               {
-                title: "Devised Theatre with Philip Arditti",
-                instructor: "Philip Arditti",
-                status: "Completed",
-                venue: "Pan Academy, London",
-                dates: "3-Day Workshop",
-                image: "/images/philip-arditti-workshop.jpg",
-                description: "Learn the art of devised theatre from acclaimed actor Philip Arditti."
+                title: language === 'EN' ? 'Devised Theatre with Philip Arditti' : 'Philip Arditti ile Oyun Yapma Atölyesi',
+                instructor: 'Philip Arditti',
+                status: language === 'EN' ? 'Completed' : 'Tamamlandı',
+                venue: language === 'EN' ? 'Pan Academy, London' : 'Pan Akademi, Londra',
+                dates: language === 'EN' ? '3-Day Workshop' : '3 Günlük Atölye',
+                image: '/images/philip-arditti-workshop.jpg',
+                description: language === 'EN'
+                  ? 'Learn the art of devised theatre from acclaimed actor Philip Arditti.'
+                  : 'Ödüllü oyuncu Philip Arditti’den doğaçlama tiyatro ve oyun yapma teknikleri öğrenin.'
               }
             ].map((workshop, index) => (
               <Card key={index} className="group overflow-hidden bg-card/50 border-border/60 hover:border-primary/40 transition-all">
@@ -396,94 +390,38 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose Pan Productions Section */}
-      <section className="py-24 bg-gradient-to-br from-secondary/5 via-background to-primary/5">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4">
-              <span className="px-4 py-2 rounded bg-primary/10 text-primary text-sm font-semibold tracking-wider uppercase border border-primary/20">
-                Why Choose Us
-              </span>
-            </div>
-            <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              Excellence in Every Performance
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Discover what makes Pan Productions a leading name in London's theatre scene
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                icon: Award,
-                title: "Award-Winning Productions",
-                description: "Recognized for excellence with multiple theatre awards and critical acclaim"
-              },
-              {
-                icon: Users,
-                title: "Expert Cast & Crew",
-                description: "Talented professionals with years of industry experience and passion"
-              },
-              {
-                icon: TrendingUp,
-                title: "Growing Community",
-                description: "Join thousands of theatre enthusiasts and aspiring performers"
-              },
-              {
-                icon: Heart,
-                title: "Passion for Theatre",
-                description: "Dedicated to bringing powerful stories and performances to life"
-              }
-            ].map((feature, index) => (
-              <Card key={index} className="bg-card/50 border-border/60 hover:border-primary/40 transition-all">
-                <CardContent className="pt-8 text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
-                    <feature.icon className="w-8 h-8" style={{ color: '#dae45f' }} />
-                  </div>
-                  <h3 className="font-heading text-xl font-bold mb-3 text-foreground">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Why Choose Pan Productions Section removed as requested */}
 
       {/* Testimonials Section */}
       <section className="py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              Testimonials
+              {language === 'EN' ? 'Testimonials' : 'Görüşler'}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Hear from our audience and students about their experiences
+              {language === 'EN' ? 'Hear from our audience and students about their experiences' : 'İzleyicilerimizden ve öğrencilerimizden deneyimlerini dinleyin'}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
-                name: "Sarah Mitchell",
-                role: "Theatre Enthusiast",
-                content: "Pan Productions consistently delivers outstanding performances. The attention to detail and passion of the cast is remarkable.",
+                name: t('index.testimonial1.name'),
+                role: t('index.testimonial1.role'),
+                content: t('index.testimonial1.content'),
                 rating: 5
               },
               {
-                name: "James Wilson",
-                role: "Workshop Student",
-                content: "The workshops transformed my acting skills. The instructors are knowledgeable, supportive, and truly invested in your growth.",
+                name: t('index.testimonial2.name'),
+                role: t('index.testimonial2.role'),
+                content: t('index.testimonial2.content'),
                 rating: 5
               },
               {
-                name: "Emily Thompson",
-                role: "Regular Attendee",
-                content: "Every production is a masterpiece. Pan Productions has become my go-to theatre company in London.",
+                name: t('index.testimonial3.name'),
+                role: t('index.testimonial3.role'),
+                content: t('index.testimonial3.content'),
                 rating: 5
               }
             ].map((testimonial, index) => (

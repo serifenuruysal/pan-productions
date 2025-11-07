@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
+import { Dialog, DialogTrigger, DialogContent } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -14,7 +15,7 @@ interface Production {
   title: string;
   author: string;
   status: string;
-  description: string;
+  description: string | { EN: string; TR: string };
   image: string;
   dates: string;
   venue: string;
@@ -24,85 +25,94 @@ interface Production {
 }
 
 // ProductionCard Component
-const ProductionCard = ({ production, getStatusColor, t }: { production: Production; getStatusColor: (status: string) => string; t: (key: string) => string }) => (
-  <Card className="production-card group overflow-hidden">
-    <div className="relative h-[500px] overflow-hidden bg-muted flex items-center justify-center">
-      {/* Blurred Background Image */}
-      <div className="absolute inset-0">
-        <img
-          src={production.image}
-          alt=""
-          className="w-full h-full object-cover blur-xl scale-110 opacity-60"
-        />
-      </div>
-      
-      {/* Main Image */}
-      <img
-        src={production.image}
-        alt={production.title}
-        className="relative z-10 w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-      />
-      
-      {/* Status Badge */}
-      <div className="absolute top-4 right-4 z-20">
-        <Badge className={getStatusColor(production.status)}>
-          {production.status}
-        </Badge>
-      </div>
-    </div>
-
-    <CardContent className="p-6">
-      <h3 className="font-heading text-2xl font-bold mb-1">
-        {production.title}
-      </h3>
-      {production.author && (
-        <p className="text-muted-foreground text-sm mb-4">
-          {t('productions.by')} {production.author}
-        </p>
-      )}
-
-      <p className="text-muted-foreground mb-6">
-        {production.description}
-      </p>
-
-      <div className="space-y-3 mb-6">
-        <div className="flex items-center text-sm">
-          <Calendar className="w-4 h-4 mr-2 text-primary" />
-          <span>{production.dates}</span>
+const ProductionCard = ({ production, getStatusColor, t }: { production: Production; getStatusColor: (status: string) => string; t: (key: string) => string }) => {
+  const [open, setOpen] = useState(false);
+  const { language } = useLanguage();
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Card className="production-card group overflow-hidden cursor-pointer">
+          <div className="relative h-[500px] overflow-hidden bg-muted flex items-center justify-center">
+            {/* Blurred Background Image */}
+            <div className="absolute inset-0">
+              <img
+                src={production.image}
+                alt=""
+                className="w-full h-full object-cover blur-xl scale-110 opacity-60"
+              />
+            </div>
+            {/* Main Image */}
+            <img
+              src={production.image}
+              alt={production.title}
+              className="relative z-10 w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+            />
+            {/* Status Badge */}
+            <div className="absolute top-4 right-4 z-20">
+              <Badge className={getStatusColor(production.status)}>
+                {production.status}
+              </Badge>
+            </div>
+          </div>
+          <CardContent className="p-6">
+            <h3 className="font-heading text-2xl font-bold mb-1">
+              {production.title}
+            </h3>
+            {production.author && (
+              <p className="text-muted-foreground text-sm mb-4">
+                {t('productions.by')} {production.author}
+              </p>
+            )}
+            <p className="text-muted-foreground mb-6">
+              {typeof production.description === 'string' ? production.description : (language === 'EN' ? production.description.EN : production.description.TR)}
+            </p>
+            <div className="space-y-3 mb-6">
+              <div className="flex items-center text-sm">
+                <Calendar className="w-4 h-4 mr-2 text-primary" />
+                <span>{production.dates}</span>
+              </div>
+              <div className="flex items-center text-sm">
+                <MapPin className="w-4 h-4 mr-2 text-primary" />
+                <span>{production.venue}</span>
+              </div>
+              <div className="flex items-center text-sm">
+                <Clock className="w-4 h-4 mr-2 text-primary" />
+                <span>{production.duration}</span>
+              </div>
+              <div className="flex items-center text-sm">
+                <Ticket className="w-4 h-4 mr-2 text-primary" />
+                <span>{production.ticketPrice}</span>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <Button 
+                variant="spotlight" 
+                className="flex-1"
+                disabled={production.status === 'Past'}
+              >
+                {production.status === 'Current' ? t('productions.buyTickets') : 
+                 production.status === 'Upcoming' ? t('productions.comingSoon') : t('productions.archive')}
+              </Button>
+              <Button variant="outline" size="icon">
+                <Calendar className="w-4 h-4" />
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </DialogTrigger>
+      <DialogContent className="max-w-2xl flex flex-col items-center">
+        <img src={production.image} alt={production.title} className="w-full h-auto max-h-[80vh] object-contain rounded-lg" />
+        <div className="mt-4 text-center">
+          <h3 className="font-heading text-2xl font-bold mb-2">{production.title}</h3>
+          {production.author && <p className="text-muted-foreground text-sm mb-2">{t('productions.by')} {production.author}</p>}
         </div>
-        <div className="flex items-center text-sm">
-          <MapPin className="w-4 h-4 mr-2 text-primary" />
-          <span>{production.venue}</span>
-        </div>
-        <div className="flex items-center text-sm">
-          <Clock className="w-4 h-4 mr-2 text-primary" />
-          <span>{production.duration}</span>
-        </div>
-        <div className="flex items-center text-sm">
-          <Ticket className="w-4 h-4 mr-2 text-primary" />
-          <span>{production.ticketPrice}</span>
-        </div>
-      </div>
-
-      <div className="flex gap-2">
-        <Button 
-          variant="spotlight" 
-          className="flex-1"
-          disabled={production.status === 'Past'}
-        >
-          {production.status === 'Current' ? t('productions.buyTickets') : 
-           production.status === 'Upcoming' ? t('productions.comingSoon') : t('productions.archive')}
-        </Button>
-        <Button variant="outline" size="icon">
-          <Calendar className="w-4 h-4" />
-        </Button>
-      </div>
-    </CardContent>
-  </Card>
-);
+      </DialogContent>
+    </Dialog>
+  );
+};
 
 const Productions = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const categories = {
     theatre: [
       {
@@ -110,10 +120,13 @@ const Productions = () => {
         title: 'The Importance of Being Earnest',
         author: 'Oscar Wilde',
         status: 'Past',
-        description: 'A brilliant comedy of manners that sparkles with wit and theatrical invention.',
+        description: {
+          EN: 'A brilliant comedy of manners that sparkles with wit and theatrical invention.',
+          TR: 'Zekâ ve tiyatral buluşlarla parlayan, görgü kuralları üzerine muhteşem bir komedi.'
+        },
         image: 'https://www.panproductions.co.uk/file/2019/11/earnest-tower.jpg',
-        dates: '6-15 January 2024',
-        venue: 'Tower Theatre',
+        dates: '6-18 January 2020',
+        venue: 'Tower Theatre, 16 Northwold Road, Stoke Newington, London N16 7HR',
         duration: '2h 30min (including interval)',
         ticketPrice: '£12-£25'
       },
@@ -122,10 +135,13 @@ const Productions = () => {
         title: 'Tut Elimden Rovni',
         author: 'Aziz Nesin',
         status: 'Past',
-        description: 'A captivating theatrical performance - "hayatı bir cambazlık gösterisi" (life is a juggling show). Starring Ada Burke and Göktay Tosun, directed by Göktay Tosun.',
+        description: {
+          EN: 'A captivating theatrical performance - "hayatı bir cambazlık gösterisi" (life is a juggling show). Starring Ada Burke and Göktay Tosun, directed by Göktay Tosun.',
+          TR: 'Hayatı bir cambazlık gösterisi olarak anlatan etkileyici bir tiyatro oyunu. Oyuncular: Ada Burke, Göktay Tosun. Yönetmen: Göktay Tosun.'
+        },
         image: '/images/tut-elimden-rovni.jpg',
-        dates: '27 March - 29 March 2024',
-        venue: 'Rosemary Branch Theatre, London',
+        dates: '27-28-29 March 2024, 20:00',
+        venue: 'Rosemary Branch Theatre, 2 Shepperton Rd, London N1 3DT',
         duration: '2h (including interval)',
         ticketPrice: 'See Archive'
       },
@@ -135,10 +151,13 @@ const Productions = () => {
         titleEn: 'I Shan\'t Perish Easily',
         author: 'Ali Has',
         status: 'Past',
-        description: 'Bir cemal süreyya & ahmed arif hikayesi... iki şair, iki yaşam, bir hikaye. A story of Cemal Süreya and Ahmed Arif - two poets, two lives, one story.',
+        description: {
+          EN: 'A story of Cemal Süreya and Ahmed Arif - two poets, two lives, one story.',
+          TR: 'Bir Cemal Süreya & Ahmed Arif hikayesi... İki şair, iki yaşam, bir hikaye.'
+        },
         image: '/images/ben-kolay-olmem.jpg',
-        dates: '11-12-13 March 2019',
-        venue: 'Arcola Theatre, London',
+        dates: '11-12-13 March 2019, 19:00',
+        venue: 'Arcola Theatre, 24 Ashwin St, London E8 3DL',
         duration: '2h',
         ticketPrice: 'See Archive'
       },
@@ -148,9 +167,12 @@ const Productions = () => {
         titleEn: 'Death and the Maiden',
         author: 'Ariel Dorfman',
         status: 'Past',
-        description: 'A gripping psychological thriller. Directed by Katharina Reinthaller and Barış Celiloğlu. Cast: Barış Celiloğlu, Göktay Tosun, Yener Çelik. English surtitles included.',
+        description: {
+          EN: 'A gripping psychological thriller. Directed by Katharina Reinthaller and Barış Celiloğlu. Cast: Barış Celiloğlu, Göktay Tosun, Yener Çelik. English surtitles included.',
+          TR: 'Sürükleyici bir psikolojik gerilim. Yönetmenler: Katharina Reinthaller, Barış Celiloğlu. Oyuncular: Barış Celiloğlu, Göktay Tosun, Yener Çelik. İngilizce üst yazılı.'
+        },
         image: '/images/olum-ve-kiz.jpg',
-        dates: '04/06/2017, 20:00',
+        dates: '4 June 2017, 20:00',
         venue: 'Arcola Theatre, 24 Ashwin Street, London E8 3DL',
         duration: '2h',
         ticketPrice: 'See Archive'
@@ -161,10 +183,13 @@ const Productions = () => {
         titleEn: 'Tiny Little Black Mulberry',
         author: 'Umut Uğur',
         status: 'Past',
-        description: "5'den 75'e herkes için Türkçe Çocuk Oyunu. Written and directed by Umut Uğur, designed by Katerina Theofanopoulou, original music by Muharrem Karaer and Erhan Şakar. A children's play in Turkish for ages 5 to 75.",
+        description: {
+          EN: "A children's play in Turkish for ages 5 to 75. Written and directed by Umut Uğur, designed by Katerina Theofanopoulou, original music by Muharrem Karaer and Erhan Şakar.",
+          TR: "5'den 75'e herkes için Türkçe çocuk oyunu. Yazan ve yöneten: Umut Uğur, tasarım: Katerina Theofanopoulou, müzik: Muharrem Karaer ve Erhan Şakar."
+        },
         image: '/images/ufacik-tefecik-karadut.jpg',
-        dates: 'Past',
-        venue: 'Pan Productions',
+        dates: '15 April 2018',
+        venue: 'Pan Productions, London',
         duration: 'Children\'s Play',
         ticketPrice: 'See Archive'
       },
@@ -174,10 +199,13 @@ const Productions = () => {
         titleEn: 'Ferhangi Things',
         author: 'Ferhan Şensoy',
         status: 'Past',
-        description: 'A legendary one-man show by the iconic Turkish comedian and theatre artist Ferhan Şensoy. An unforgettable evening of humor, satire, and theatrical brilliance.',
+        description: {
+          EN: 'A legendary one-man show by the iconic Turkish comedian and theatre artist Ferhan Şensoy. An unforgettable evening of humor, satire, and theatrical brilliance.',
+          TR: 'Ferhan Şensoy’un efsanevi tek kişilik gösterisi. Mizah, hiciv ve tiyatro dolu unutulmaz bir gece.'
+        },
         image: '/images/ferhangi-seyler.jpg',
-        dates: 'Past',
-        venue: 'Pan Productions',
+        dates: '10 June 2017',
+        venue: 'Pan Productions, London',
         duration: 'One-Man Show',
         ticketPrice: 'See Archive'
       },
@@ -191,10 +219,13 @@ const Productions = () => {
         title: 'Erkan Oğur & Bülent Ortaçgil',
         author: '',
         status: 'Past',
-        description: 'An intimate concert featuring legendary Turkish musicians Erkan Oğur and Bülent Ortaçgil.',
+        description: {
+          EN: 'An intimate concert featuring legendary Turkish musicians Erkan Oğur and Bülent Ortaçgil.',
+          TR: 'Efsanevi Türk müzisyenler Erkan Oğur ve Bülent Ortaçgil’in samimi konseri.'
+        },
         image: 'https://www.panproductions.co.uk/wp-content/uploads/2014/10/Pan_Productions_Erkan_Ogur1.jpg',
-        dates: 'Past Concert',
-        venue: 'Pan Productions',
+        dates: '27 November 2016, 19:00',
+        venue: 'Islington Assembly Hall, Upper St, London N1 2UD',
         duration: 'Concert',
         ticketPrice: 'See Archive'
       },
@@ -203,7 +234,10 @@ const Productions = () => {
         title: 'Erkan Oğur & İsmail Hakkı Demircioğlu Konseri',
         author: '',
         status: 'Past',
-        description: 'A captivating musical collaboration between legendary Turkish musicians Erkan Oğur and İsmail Hakkı Demircioğlu. "Bütün türküler güzeldir, hayatın ta kendisidir. Salt müzik değildir ve bu ülkenin eline tutulan hazinesidir."',
+        description: {
+          EN: 'A captivating musical collaboration between legendary Turkish musicians Erkan Oğur and İsmail Hakkı Demircioğlu. "Bütün türküler güzeldir, hayatın ta kendisidir. Salt müzik değildir ve bu ülkenin eline tutulan hazinesidir."',
+          TR: 'Efsanevi Türk müzisyenler Erkan Oğur ve İsmail Hakkı Demircioğlu’nun büyüleyici müzikal buluşması. “Bütün türküler güzeldir, hayatın ta kendisidir.”'
+        },
         image: '/images/erkan-ogur-ismail.jpg',
         dates: '20 March 2011, 18:45',
         venue: 'Union Chapel, Compton Terrace, London N1 2UN',
@@ -215,7 +249,10 @@ const Productions = () => {
         title: 'Olcay Bayır Fundraiser Concert',
         author: '',
         status: 'Past',
-        description: 'A special fundraiser concert featuring the talented Kurdish-Turkish singer Olcay Bayır. Supporting Djanan Turan, Erdogan Bayir, Ece & Debora. Live music and DJ Ece till 1AM.',
+        description: {
+          EN: 'A special fundraiser concert featuring the talented Kurdish-Turkish singer Olcay Bayır. Supporting Djanan Turan, Erdogan Bayir, Ece & Debora. Live music and DJ Ece till 1AM.',
+          TR: 'Başarılı Kürt-Türk şarkıcı Olcay Bayır’ın yer aldığı özel bir destek konseri. Djanan Turan, Erdoğan Bayır, Ece & Debora destekliyor. Canlı müzik ve DJ Ece sabaha kadar.'
+        },
         image: '/images/olcay-bayir-fundraiser.jpg',
         dates: 'Friday 21 April, 7:30PM-1:00AM',
         venue: 'Epic Dalston, 13 Stoke Newington Rd N16 8BH',
@@ -299,73 +336,20 @@ const Productions = () => {
             <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">
               {t('productions.title')}
             </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              {t('productions.subtitle')}
-            </p>
+            {/* Subtitle removed as requested */}
           </div>
         </div>
       </section>
 
+
       <div className="container mx-auto px-4 py-16">
-        {/* Status Tabs - combining all categories */}
-        <Tabs defaultValue="past" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-3 mb-12">
-            <TabsTrigger value="current" className="text-lg font-bold uppercase font-heading">{t('productions.tabCurrent')}</TabsTrigger>
-            <TabsTrigger value="upcoming" className="text-lg font-bold uppercase font-heading">{t('productions.tabUpcoming')}</TabsTrigger>
-            <TabsTrigger value="past" className="text-lg font-bold uppercase font-heading">{t('productions.tabPast')}</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="current">
-            {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
-              .filter(p => p.status === 'Current').length > 0 ? (
-              <div className="grid md:grid-cols-2 gap-8">
-                {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
-                  .filter(p => p.status === 'Current')
-                  .map((production) => (
-                    <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} t={t} />
-                  ))}
-              </div>
-            ) : (
-              <div className="text-center py-16">
-                <p className="text-muted-foreground text-lg">{t('productions.noCurrent')}</p>
-              </div>
-            )}
-          </TabsContent>
-
-          <TabsContent value="upcoming">
-            {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
-              .filter(p => p.status === 'Upcoming').length > 0 ? (
-              <div className="grid md:grid-cols-2 gap-8">
-                {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
-                  .filter(p => p.status === 'Upcoming')
-                  .map((production) => (
-                    <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} t={t} />
-                  ))}
-              </div>
-            ) : (
-              <div className="text-center py-16">
-                <p className="text-muted-foreground text-lg">{t('productions.noUpcoming')}</p>
-              </div>
-            )}
-          </TabsContent>
-
-          <TabsContent value="past">
-            {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
-              .filter(p => p.status === 'Past').length > 0 ? (
-              <div className="grid md:grid-cols-2 gap-8">
-                {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
-                  .filter(p => p.status === 'Past')
-                  .map((production) => (
-                    <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} t={t} />
-                  ))}
-              </div>
-            ) : (
-              <div className="text-center py-16">
-                <p className="text-muted-foreground text-lg">{t('productions.noPast')}</p>
-              </div>
-            )}
-          </TabsContent>
-        </Tabs>
+        {/* All Productions in a single list */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
+            .map((production) => (
+              <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} t={t} />
+            ))}
+        </div>
 
         {/* Call to Action */}
         <div className="text-center mt-16 p-8 rounded-lg bg-card/50">

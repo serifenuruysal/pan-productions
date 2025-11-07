@@ -19,23 +19,27 @@ import {
   Theater,
   Phone
 } from 'lucide-react';
+import { formatWorkshopDate } from '@/lib/dateFormat';
 
 const Workshops = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const pastWorkshops = [
     {
       title: "Theatre of the Oppressed - Augusto Boal Workshop",
       instructor: "Dr. Pieter Verstraete (Free University Berlin & University Groningen)",
-      date: "27th October 2025, Thursday",
+      date: "27 October 2025",
       time: "19:00-21:00",
       location: "Arcola Theatre, Studio 4",
       price: "Free",
       level: "All Levels",
       spots: null,
       status: "Completed",
-      category: "THEATER",
-      description: "A Workshop on Augusto Boal's Theatre of the Oppressed and Listening to Others with Insights from the ExiLives Project. Critical Theatre Strategies, Listening Modes and Exercises. This workshop explores Augusto Boal's revolutionary Theatre of the Oppressed methodology, focusing on critical theatre strategies and listening techniques. Participants will engage with practical exercises that combine Boal's transformative approach with contemporary insights from the ExiLives Project, learning how to use theatre as a tool for social change and understanding diverse perspectives.",
+      category: "THEATRE",
+      description: {
+        EN: "A Workshop on Augusto Boal's Theatre of the Oppressed and Listening to Others with Insights from the ExiLives Project. Critical Theatre Strategies, Listening Modes and Exercises. This workshop explores Augusto Boal's revolutionary Theatre of the Oppressed methodology, focusing on critical theatre strategies and listening techniques. Participants will engage with practical exercises that combine Boal's transformative approach with contemporary insights from the ExiLives Project, learning how to use theatre as a tool for social change and understanding diverse perspectives.",
+        TR: "Augusto Boal’ın Ezilenlerin Tiyatrosu ve ExiLives Projesi’nden ilhamla başkalarını dinleme üzerine bir atölye. Eleştirel tiyatro stratejileri, dinleme biçimleri ve uygulamalar. Katılımcılar, Boal’ın dönüştürücü yaklaşımını çağdaş bakış açılarıyla birleştirerek tiyatroyu toplumsal değişim ve farklı bakış açılarını anlamak için bir araç olarak kullanmayı deneyimleyecek."
+      },
       image: "/images/boal-workshop.jpg",
       contact: "info@panproductions.co.uk",
       phone: null
@@ -43,7 +47,7 @@ const Workshops = () => {
     {
       title: "Mehmet Ergen ile Tiyatro Deneyimi - Theatre Experience with Mehmet Ergen",
       instructor: "Mehmet Ergen",
-      date: "2 Oct, 3 Oct, 7 Oct, 10 Oct 2025",
+      date: "2,3,7,10 October 2024",
       time: "19:00-22:00",
       location: "Arcola Theatre, 24 Ashwin St, E8 3DL",
       price: "Contact for pricing",
@@ -51,7 +55,10 @@ const Workshops = () => {
       spots: null,
       status: "Completed",
       category: "THEATER",
-      description: "Oyunculuk ve Yaratım - Acting and Creation workshop with renowned theatre director and practitioner Mehmet Ergen. This four-session workshop offers participants a unique opportunity to explore theatre-making techniques, acting methodologies, and creative expression under the guidance of one of the leading figures in contemporary Turkish theatre. Participants will engage in practical exercises, scene work, and collaborative creation processes.",
+      description: {
+        EN: "Acting and Creation workshop with renowned theatre director and practitioner Mehmet Ergen. This four-session workshop offers participants a unique opportunity to explore theatre-making techniques, acting methodologies, and creative expression under the guidance of one of the leading figures in contemporary Turkish theatre. Participants will engage in practical exercises, scene work, and collaborative creation processes.",
+        TR: "Oyunculuk ve Yaratım: Mehmet Ergen ile dört oturumluk atölye. Katılımcılar, çağdaş Türk tiyatrosunun önde gelen isimlerinden biriyle sahneleme teknikleri, oyunculuk yöntemleri ve yaratıcı ifade üzerine çalışacak; uygulamalı egzersizler, sahne çalışmaları ve kolektif yaratım süreçleri deneyimleyecek."
+      },
       image: "/images/mehmet-ergen-workshop.jpg",
       contact: "info@panproductions.co.uk",
       phone: null
@@ -59,7 +66,7 @@ const Workshops = () => {
     {
       title: "Philip Arditti ile Oyun Yapma Atölyesi - Devised Theatre with Philip Arditti",
       instructor: "Philip Arditti",
-      date: "24 June, 1 July, 8 July, 15 July 2025",
+      date: "24 June, 1, 8, 15 July 2025",
       time: "19:00-21:30",
       location: "Arcola Theatre, 24 Ashwin St, E8 3DL",
       price: "Contact for pricing",
@@ -67,7 +74,10 @@ const Workshops = () => {
       spots: "Limited availability",
       status: "Completed",
       category: "THEATER",
-      description: "Devised theatre and storytelling workshop. 'I can take any empty space and call it a bare stage. A man walks across this empty space whilst someone else is watching him, and this is all that is needed for an act of theatre to be engaged.' - Peter Brook. Deriving from this mindset, in this workshop we will: Create scenes without the obligation of writing. Explore the power of storytelling with the minimum amount of elements. Experience theatre-making and devised theatre techniques. Create personal stories on stage using stand-up, solo and storytelling formats. Who can join? Those interested in acting. Those who want to create on stage. Those interested in solo performance and storytelling. Those who want to explore theatre. Limited availability.",
+      description: {
+        EN: "Devised theatre and storytelling workshop. 'I can take any empty space and call it a bare stage. A man walks across this empty space whilst someone else is watching him, and this is all that is needed for an act of theatre to be engaged.' - Peter Brook. Deriving from this mindset, in this workshop we will: Create scenes without the obligation of writing. Explore the power of storytelling with the minimum amount of elements. Experience theatre-making and devised theatre techniques. Create personal stories on stage using stand-up, solo and storytelling formats. Who can join? Those interested in acting. Those who want to create on stage. Those interested in solo performance and storytelling. Those who want to explore theatre. Limited availability.",
+        TR: "Doğaçlama tiyatro ve hikaye anlatıcılığı atölyesi. Peter Brook’un ‘Boş bir sahneye yürüyen bir adam ve onu izleyen biriyle tiyatro başlar’ yaklaşımından yola çıkarak; yazılı metne bağlı kalmadan sahne yaratma, en az ögeyle hikaye anlatma, tiyatro yapma ve doğaçlama teknikleri, sahnede kişisel hikaye oluşturma, stand-up ve solo performans gibi biçimler deneyimlenecek. Katılım: Oyunculuğa ilgi duyanlar, sahnede üretmek isteyenler, solo performans ve hikaye anlatıcılığına ilgi duyanlar, tiyatroyu keşfetmek isteyenler. Kontenjan sınırlı."
+      },
       image: "/images/philip-arditti-workshop.jpg",
       contact: "info@panproductions.co.uk",
       phone: null
@@ -83,7 +93,10 @@ const Workshops = () => {
       spots: null,
       status: "Completed",
       category: "THEATER",
-      description: "There are countless ways to write about an event, a feeling, or a thought. Strangely enough, sometimes we have to begin from an unexpected place to truly express what's inside us. But where is that unexpected place? The 'Emotions Bank Writing Workshop' is a space free from formulas and templates, designed to take you on a journey through your own personal bank of emotions. It will focus on how to tap into your storytelling instinct, how to generate new ideas from your perceptions and experiences, how to explore different structures, and how to develop your writing skills. The goal of this four-hour workshop is to inspire you, help you overcome your fear of writing, and leave you with a notebook full of creative ideas. We invite you to write, to share your stories, and most importantly, to discover the healing power of writing.",
+      description: {
+        EN: "There are countless ways to write about an event, a feeling, or a thought. Strangely enough, sometimes we have to begin from an unexpected place to truly express what's inside us. But where is that unexpected place? The 'Emotions Bank Writing Workshop' is a space free from formulas and templates, designed to take you on a journey through your own personal bank of emotions. It will focus on how to tap into your storytelling instinct, how to generate new ideas from your perceptions and experiences, how to explore different structures, and how to develop your writing skills. The goal of this four-hour workshop is to inspire you, help you overcome your fear of writing, and leave you with a notebook full of creative ideas. We invite you to write, to share your stories, and most importantly, to discover the healing power of writing.",
+        TR: "Bir olayı, duyguyu ya da düşünceyi yazmanın sayısız yolu vardır. Bazen içimizdekini gerçekten ifade etmek için beklenmedik bir yerden başlamak gerekir. Peki o yer neresi? Duygular Bankası Yazı Atölyesi, formüllerden ve kalıplardan uzak, kendi duygusal bankanızda bir yolculuğa çıkmanız için tasarlandı. Hikaye anlatma içgüdüsünü ortaya çıkarmak, algı ve deneyimlerden yeni fikirler üretmek, farklı yapı ve teknikleri keşfetmek ve yazma becerilerini geliştirmek üzerine odaklanır. Dört saatlik bu atölyenin amacı, ilham vermek, yazma korkusunu aşmanıza yardımcı olmak ve defterinizi yaratıcı fikirlerle doldurmanızı sağlamak. Yazmaya, hikayelerinizi paylaşmaya ve yazının iyileştirici gücünü keşfetmeye davetlisiniz."
+      },
       image: "/images/writing-workshop.jpg",
       contact: "info@panproductions.co.uk",
       phone: null
@@ -91,7 +104,7 @@ const Workshops = () => {
     {
       title: "Oyunculuk Atölyesi - Introduction to Stanislavski's Method of Physical Actions",
       instructor: "Cüneyt Yalaz",
-      date: "2nd June 2025, Monday",
+      date: "2 June 2025",
       time: "19:00",
       location: "Tower Theatre, 16 Northwold Road - N16 7HR",
       price: "Contact for pricing",
@@ -99,7 +112,10 @@ const Workshops = () => {
       spots: null,
       status: "Completed",
       category: "THEATER",
-      description: "This workshop offers an introduction to the 'Method of Physical Actions' developed by Stanislavski, the founder of the most influential acting theory. The Method of Physical Actions is an essential acting approach that should be learned and practiced by both beginners and experienced actors alike. The workshop will also include a discussion and practical session on how this method can be interpreted from a Brechtian perspective. Topics: What was Stanislavski's innovative contribution to acting? What is the Method of Physical Actions? Core concepts like Emotion Memory, Concentration, Given Circumstances, The Magic If, and Emotion-Thought Exchange. How to approach a role and what elements to draw upon when portraying a character. The relationship between dramaturgy and acting style, and Brecht's contribution. Cüneyt Yalaz is a graduate of Boğaziçi University, founding member of BGST, actor, director, playwright, and recipient of the Sadri Alışık Best Actor Award (2016) and Vasıf Öngören Special Award (2018).",
+      description: {
+        EN: "This workshop offers an introduction to the 'Method of Physical Actions' developed by Stanislavski, the founder of the most influential acting theory. The Method of Physical Actions is an essential acting approach that should be learned and practiced by both beginners and experienced actors alike. The workshop will also include a discussion and practical session on how this method can be interpreted from a Brechtian perspective. Topics: What was Stanislavski's innovative contribution to acting? What is the Method of Physical Actions? Core concepts like Emotion Memory, Concentration, Given Circumstances, The Magic If, and Emotion-Thought Exchange. How to approach a role and what elements to draw upon when portraying a character. The relationship between dramaturgy and acting style, and Brecht's contribution. Cüneyt Yalaz is a graduate of Boğaziçi University, founding member of BGST, actor, director, playwright, and recipient of the Sadri Alışık Best Actor Award (2016) and Vasıf Öngören Special Award (2018).",
+        TR: "Stanislavski’nin geliştirdiği Fiziksel Eylemler Yöntemi’ne giriş niteliğinde bir atölye. Bu yöntem, hem yeni başlayanlar hem de deneyimli oyuncular için temel bir oyunculuk yaklaşımıdır. Atölyede ayrıca bu yöntemin Brechtyen bir bakış açısıyla nasıl yorumlanabileceği de tartışılacak ve uygulamalı olarak çalışılacaktır. Konular: Stanislavski’nin oyunculuğa getirdiği yenilikler, Fiziksel Eylemler Yöntemi’nin temel kavramları (Duygu Belleği, Konsantrasyon, Verili Durumlar, Sihirli Eğer, Duygu-Düşünce Alışverişi), bir role yaklaşım ve karakter yaratımında başvurulacak unsurlar, dramaturji ve oyunculuk tarzı ilişkisi, Brecht’in katkısı. Cüneyt Yalaz: Boğaziçi Üniversitesi mezunu, BGST kurucu üyesi, oyuncu, yönetmen, oyun yazarı, Sadri Alışık En İyi Erkek Oyuncu Ödülü (2016) ve Vasıf Öngören Özel Ödülü (2018) sahibi."
+      },
       image: "/images/stanislavski-workshop.jpg",
       contact: "info@panproductions.co.uk",
       phone: "07944430349"
@@ -107,7 +123,7 @@ const Workshops = () => {
     {
       title: "Meisner Technique Workshop",
       instructor: "Pan Productions",
-      date: "21st July 2024, Sunday",
+      date: "21 July 2024",
       time: "11:00 AM - 2:00 PM (3 hours with breaks)",
       location: "Tower Theatre",
       price: "Free",
@@ -115,7 +131,10 @@ const Workshops = () => {
       spots: null,
       status: "Completed",
       category: "THEATER",
-      description: "The Meisner technique is an approach to acting developed by American theatre practitioner Sanford Meisner. The goal of the Meisner approach is for the actor to not focus on themselves and instead concentrate on the other actors in the immediate environment. Here and now, without thinking or planning.",
+      description: {
+        EN: "The Meisner technique is an approach to acting developed by American theatre practitioner Sanford Meisner. The goal of the Meisner approach is for the actor to not focus on themselves and instead concentrate on the other actors in the immediate environment. Here and now, without thinking or planning.",
+        TR: "Meisner tekniği, Amerikalı tiyatrocu Sanford Meisner tarafından geliştirilen bir oyunculuk yaklaşımıdır. Bu yöntemde amaç, oyuncunun kendisine odaklanmak yerine, anda ve karşısındaki oyuncuya odaklanmasıdır; düşünmeden, planlamadan, burada ve şimdi."
+      },
       image: "/images/meisner-workshop.jpg",
       contact: "info@panproductions.co.uk",
       phone: null
@@ -247,18 +266,18 @@ const Workshops = () => {
           </div>
 
           {/* Category Tabs */}
-          <Tabs defaultValue="theater" className="w-full">
+          <Tabs defaultValue="theatre" className="w-full">
             <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-4 mb-12">
-              <TabsTrigger value="theater" className="text-lg font-heading">{t('workshops.tabTheater')}</TabsTrigger>
+              <TabsTrigger value="theatre" className="text-lg font-heading">{t('workshops.tabTheater')}</TabsTrigger>
               <TabsTrigger value="music" className="text-lg font-heading">{t('workshops.tabMusic')}</TabsTrigger>
               <TabsTrigger value="art" className="text-lg font-heading">{t('workshops.tabArt')}</TabsTrigger>
               <TabsTrigger value="film" className="text-lg font-heading">{t('workshops.tabFilm')}</TabsTrigger>
             </TabsList>
 
-            {/* Theater Tab */}
-            <TabsContent value="theater">
+            {/* Theatre Tab */}
+            <TabsContent value="theatre">
               <div className="grid md:grid-cols-2 gap-8">
-                {pastWorkshops.filter(w => w.category === 'THEATER').map((workshop, index) => (
+                {pastWorkshops.map((workshop, index) => (
                   <Card key={index} className="group overflow-hidden cursor-pointer" onClick={() => setSelectedImage(workshop.image)}>
                     <div className="relative h-[500px] overflow-hidden">
                       {/* Blurred background layer */}
@@ -311,13 +330,13 @@ const Workshops = () => {
                     {t('workshops.instructor')}: {workshop.instructor}
                   </p>
                   <p className="text-muted-foreground mb-6">
-                    {workshop.description}
+                    {typeof workshop.description === 'string' ? workshop.description : (language === 'EN' ? workshop.description.EN : workshop.description.TR)}
                   </p>
 
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center text-sm">
                       <Calendar className="w-4 h-4 mr-2 text-primary" />
-                      <span>{workshop.date}</span>
+                      <span>{formatWorkshopDate(workshop.date)}</span>
                     </div>
                     <div className="flex items-center text-sm">
                       <Clock className="w-4 h-4 mr-2 text-primary" />

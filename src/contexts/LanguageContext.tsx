@@ -10,6 +10,19 @@ interface LanguageContextType {
 
 const translations = {
   EN: {
+    // News Items
+    'news.item1.title': 'The Importance of Being Earnest: Theatre Things Review',
+    'news.item1.description': 'A fresh take on Wilde’s classic, praised for its creativity and relevance. “After so many traditional versions of the play, a fresh take is more than welcome.”',
+    'news.item2.title': 'Interview: Aylin Bozok on Directing Earnest',
+    'news.item2.description': 'Director Aylin Bozok discusses the challenges and joys of staging Wilde’s play with a diverse cast.',
+    'news.item3.title': 'Be My Guest: Earnest at Tower Theatre',
+    'news.item3.description': 'A glowing review highlighting the cast’s chemistry and the production’s unique vision.',
+    'news.item4.title': 'Bakchormeeboy: Earnest Off West End Preview',
+    'news.item4.description': 'Preview of the Off West End run, focusing on the immigrant experience and new perspectives.',
+    'news.item5.title': 'The Theatre Times: About Earnest',
+    'news.item5.description': 'An in-depth article exploring the adaptation’s cultural impact and audience reception.',
+    'news.item6.title': 'London Theatre1: Earnest Review',
+    'news.item6.description': 'London Theatre1 reviews the production, praising its energy and inventive staging.',
     // Navigation
     'nav.home': 'Home',
     'nav.productions': 'Productions',
@@ -25,7 +38,7 @@ const translations = {
     // Hero Section
     'hero.slide1.title': 'Bringing Stories to Life on Stage',
     'hero.slide1.subtitle': 'Productions & Experience',
-    'hero.slide1.description': 'Experience unforgettable theater productions with Pan Productions.',
+  'hero.slide1.description': 'Experience unforgettable theatre productions with Pan Productions.',
     'hero.slide1.cta': 'See Upcoming Shows',
     
     'hero.slide2.title': 'Promoting Stories Beyond the Stage',
@@ -43,7 +56,9 @@ const translations = {
     'index.discover': 'Discover Pan Productions',
     'index.discoverDescription': 'From professional theatre productions to comprehensive drama education, we bring stories to life and nurture the next generation of performers.',
     
-    'index.highlights.productions.title': 'Current Productions',
+  'index.highlights.productions.title': 'Productions',
+  'index.highlights.discoverTitle': 'Discover Pan Productions',
+  'index.highlights.discoverDescription': 'From professional theatre productions to comprehensive drama education, we bring stories to life and nurture the next generation of performers.',
     'index.highlights.productions.description': 'Experience our acclaimed theatrical performances featuring talented casts and captivating stories.',
     'index.highlights.academy.title': 'Pan Academy',
     'index.highlights.academy.description': 'Professional workshops and lessons for actors of all levels, taught by industry experts.',
@@ -118,7 +133,7 @@ const translations = {
     'workshops.contactUs': 'Contact Us',
     'workshops.pastWorkshopsTitle': 'Past Workshops',
     'workshops.pastWorkshopsSubtitle': 'Explore our previously held workshops that helped develop performance skills',
-    'workshops.tabTheater': 'THEATER',
+  'workshops.tabTheater': 'THEATRE',
     'workshops.tabMusic': 'MUSIC',
     'workshops.tabArt': 'ART',
     'workshops.tabFilm': 'FILM',
@@ -377,6 +392,19 @@ const translations = {
     'footer.rights': 'All rights reserved.',
   },
   TR: {
+    // News Items
+    'news.item1.title': 'Ciddi Olmanın Önemi: Theatre Things İncelemesi',
+    'news.item1.description': 'Wilde’ın klasiğine taze bir bakış, yaratıcılığı ve güncelliğiyle övgü aldı. “Pek çok geleneksel versiyondan sonra, taze bir bakış fazlasıyla hoş karşılanıyor.”',
+    'news.item2.title': 'Röportaj: Aylin Bozok ile Earnest Yönetmenliği Üzerine',
+    'news.item2.description': 'Yönetmen Aylin Bozok, Wilde’ın oyununu çeşitli bir oyuncu kadrosuyla sahnelemenin zorluklarını ve keyiflerini anlatıyor.',
+    'news.item3.title': 'Be My Guest: Earnest Tower Theatre’da',
+    'news.item3.description': 'Oyuncu kadrosunun uyumu ve prodüksiyonun benzersiz vizyonu öne çıkarılan olumlu bir inceleme.',
+    'news.item4.title': 'Bakchormeeboy: Earnest Off West End Önizleme',
+    'news.item4.description': 'Off West End gösteriminin önizlemesi; göçmen deneyimi ve yeni bakış açılarına odaklanıyor.',
+    'news.item5.title': 'The Theatre Times: Earnest Hakkında',
+    'news.item5.description': 'Uyarlamanın kültürel etkisini ve izleyici tepkisini inceleyen kapsamlı bir makale.',
+    'news.item6.title': 'London Theatre1: Earnest İncelemesi',
+    'news.item6.description': 'London Theatre1, prodüksiyonu enerjisi ve yaratıcı sahnelemesiyle övüyor.',
     // Navigation
     'nav.home': 'Home',
     'nav.productions': 'Productions',
@@ -516,7 +544,7 @@ const translations = {
     'workshops.heroParagraph2': 'Oyunculukta yeniyseniz, Başlangıç Kurslarımız İleri ve İleri Düzey seviyelere geçmeden önce başlamanıza yardımcı olacak eğlenceli ve destekleyici bir ortam sağlar. Profesyonel bir kariyere heves edenler için Endüstri Kurslarımız, oyunculuk endüstrisinin taleplerine hazırlanmanız için uzman eğitim sunar. Çeşitli teknikleri kapsayan yoğun bir deneyim arıyorsanız, Oyunculuk Temelleri kursumuz mükemmel bir seçimdir.',
     'workshops.heroParagraph3': 'Yetişkinler için çeşitli oyunculuk kursları sunuyoruz; Oyunculuk Sınıfları, Ses ve Hareket Eğitimi ile birlikte oyun yazarlığı ve Meisner, Stanislavski ve Method Oyunculuk gibi özelleşmiş oyunculuk yöntemleri gibi özel atölyeler.',
     'workshops.contactUs': 'Bize Ulaşın',
-    'workshops.tabTheater': 'Tiyatro',
+  'workshops.tabTheater': 'Tiyatro',
     'workshops.tabMusic': 'Müzik',
     'workshops.tabArt': 'Sanat',
     'workshops.tabFilm': 'Film',
@@ -672,7 +700,9 @@ const translations = {
     'index.discover': 'Pan Productions\'ı Keşfedin',
     'index.discoverDescription': 'Profesyonel tiyatro prodüksiyonlarından kapsamlı drama eğitimine kadar, hikayelere hayat veriyoruz ve gelecek nesil sanatçıları yetiştiriyoruz.',
     
-    'index.highlights.productions.title': 'Güncel Prodüksiyonlar',
+  'index.highlights.productions.title': 'Güncel Prodüksiyonlar',
+  'index.highlights.discoverTitle': 'Pan Productions’ı Keşfedin',
+  'index.highlights.discoverDescription': 'Profesyonel tiyatro prodüksiyonlarından kapsamlı drama eğitimine kadar, hikayeleri sahneye taşıyor ve yeni nesil sanatçıları yetiştiriyoruz.',
     'index.highlights.productions.description': 'Yetenekli oyuncu kadrosu ve büyüleyici hikayeleriyle dikkat çeken tiyatro gösterilerimizi deneyimleyin.',
     'index.highlights.academy.title': 'Pan Akademi',
     'index.highlights.academy.description': 'Her seviyeden oyuncu için, sektör uzmanları tarafından verilen profesyonel atölyeler ve dersler.',

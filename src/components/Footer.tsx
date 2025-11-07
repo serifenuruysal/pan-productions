@@ -80,13 +80,14 @@ const Footer = () => {
                 <MapPin className="h-4 w-4 mt-1 text-primary" />
                 <span>
                   Pan Productions<br />
-                  London, United Kingdom
+                  177 Whitecross Street<br />
+                  EC1Y 8QP
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-primary" />
-                <a href="tel:+442012345678" className="hover:text-primary transition-colors">
-                  +44 (0)20 1234 5678
+                <a href="tel:+447961213849" className="hover:text-primary transition-colors">
+                  +44 7961 213849
                 </a>
               </li>
               <li className="flex items-center gap-3">

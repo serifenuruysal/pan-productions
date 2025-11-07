@@ -70,8 +70,18 @@ const PartnersCarousel = () => {
             </h3>
           </div>
 
-          <div className="relative overflow-hidden">
-            <div className="flex space-x-12 animate-scroll hover:pause">
+          <div className="relative">
+            {/*
+              We keep the animated marquee (animate-scroll) but also allow users
+              to manually scroll the row. On touch devices this enables swipe/drag.
+            */}
+            <div
+              className="-mx-6 px-6 overflow-x-auto scroll-smooth touch-pan-x"
+              role="list"
+              aria-label="Partners and supporters"
+              tabIndex={0}
+            >
+              <div className="flex space-x-12 animate-scroll hover:pause min-w-max">
               {/* First set of logos */}
               {partners.map((partner, index) => (
                 <div
@@ -110,6 +120,7 @@ const PartnersCarousel = () => {
                   />
                 </div>
               ))}
+              </div>
             </div>
           </div>
         </div>

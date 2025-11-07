@@ -45,9 +45,9 @@ const About = () => {
       <section className="relative py-20 bg-gradient-to-br from-primary/10 via-background to-secondary/5">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-              {t('about.heroTitle')}
-            </h1>
+             <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+               Who Are We?
+             </h1>
           </div>
         </div>
       </section>
@@ -59,12 +59,7 @@ const About = () => {
             <div className="grid lg:grid-cols-2 gap-16 items-start">
               {/* Left: Content */}
               <div className="space-y-6">
-                <div>
-                  <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-foreground">
-                    {t('about.historyTitle')}
-                  </h2>
-                  <div className="w-20 h-1 bg-primary mb-8"></div>
-                </div>
+                 {/* About Us başlığı kaldırıldı */}
                 
                 <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
                   <p>
