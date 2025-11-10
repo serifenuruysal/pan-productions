@@ -76,14 +76,18 @@ const PartnersCarousel = () => {
               to manually scroll the row. On touch devices this enables swipe/drag.
             */}
             <div
-              className="-mx-6 px-6 overflow-x-auto scroll-smooth touch-pan-x"
+              className="w-full overflow-x-auto scroll-smooth touch-pan-x -mx-4 px-4 py-6"
               role="list"
               aria-label="Partners and supporters"
               tabIndex={0}
             >
-        {/* On small screens we disable the auto-scrolling animation so users
-          can swipe manually; enable the marquee on md+ screens. */}
-        <div className="flex space-x-6 md:space-x-12 md:animate-scroll hover:pause min-w-max">
+              {/*
+                Use an inline-flex row so the content width is measured correctly
+                on small screens (prevents collapse). The marquee animation
+                remains enabled on md+ screens but is disabled on small screens
+                so users can manually swipe.
+              */}
+              <div className="inline-flex items-center gap-6 md:gap-12 md:animate-scroll hover:pause">
               {/* First set of logos */}
               {partners.map((partner, index) => (
                 <div
@@ -93,7 +97,7 @@ const PartnersCarousel = () => {
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="relative z-10 w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
+                    className="relative z-10 max-w-full max-h-full object-contain opacity-90 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
                   />
                   <img
                     src={partner.logo}
@@ -112,7 +116,7 @@ const PartnersCarousel = () => {
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="relative z-10 w-full h-full object-cover opacity-70 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
+                    className="relative z-10 max-w-full max-h-full object-contain opacity-90 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
                   />
                   <img
                     src={partner.logo}

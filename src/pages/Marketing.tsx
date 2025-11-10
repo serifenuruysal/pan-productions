@@ -97,9 +97,7 @@ const Marketing = () => {
             <h2 className="text-3xl font-heading font-semibold mb-6 text-primary">
               {t('marketing.heroSubtitle')}
             </h2>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              {t('marketing.heroDescription')}
-            </p>
+            {/* Hero description sentence removed per request (kept off the hero only) */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
                 <Button size="lg" className="px-8">
