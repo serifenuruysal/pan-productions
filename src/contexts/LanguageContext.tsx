@@ -51,14 +51,14 @@ const translations = {
     'hero.slide3.description': 'Our workshops inspire and nurture the next generation of performers.',
     'hero.slide3.cta': 'Join a Workshop',
     
-    'hero.slide4.title': 'Experience Our Latest Production',
-    'hero.slide4.subtitle': 'Now Showing',
-    'hero.slide4.description': 'Don\'t miss out on our spectacular theatre production. Book your tickets now and be part of an unforgettable experience.',
+    'hero.slide4.title': 'Jem: Intimate Candlelit Concert',
+    'hero.slide4.subtitle': 'December 8, St. Pancras Old Church',
+    'hero.slide4.description': 'Experience an intimate candlelit concert with Jem at St. Pancras Old Church on December 8. Let her ethereal voice and poetic melodies create a soulful, unforgettable evening. Tickets are limited, reserve yours now!',
     'hero.slide4.cta': 'Learn More',
     'hero.slide4.video': '/videos/showcase.mp4', // Update with your video path
     'hero.slide4.buyTicket': 'Buy Ticket',
     'hero.slide4.processing': 'Processing...',
-    'hero.slide4.ticketName': 'Theatre Show Ticket',
+    'hero.slide4.ticketName': 'Jem Concert Ticket',
     
     // Index Page
     'index.whatWeOffer': 'What We Offer',
@@ -707,14 +707,14 @@ const translations = {
     'hero.slide3.description': 'Atölyelerimiz gelecek nesil sanatçılara ilham verir ve onları geliştirir.',
     'hero.slide3.cta': 'Atölyelere Katılın',
     
-    'hero.slide4.title': 'Son Prodüksiyonumuzu Deneyimleyin',
-    'hero.slide4.subtitle': 'Şimdi Gösterimde',
-    'hero.slide4.description': 'Muhteşem tiyatro prodüksiyonumuzu kaçırmayın. Biletlerinizi şimdi alın ve unutulmaz bir deneyimin parçası olun.',
+    'hero.slide4.title': 'Jem: Samimi Mum Işığı Konseri',
+    'hero.slide4.subtitle': '8 Aralık, St. Pancras Old Church',
+    'hero.slide4.description': '8 Aralık\'ta St. Pancras Old Church\'te Jem ile samimi bir mum ışığı konseri yaşayın. Onun göksel sesi ve şiirsel melodileri ruhani, unutulmaz bir akşam yaratacak. Biletler sınırlı, şimdi rezervasyon yapın!',
     'hero.slide4.cta': 'Daha Fazla Bilgi',
     'hero.slide4.video': '/videos/showcase.mp4', // Video yolunu güncelleyin
     'hero.slide4.buyTicket': 'Bilet Al',
     'hero.slide4.processing': 'İşleniyor...',
-    'hero.slide4.ticketName': 'Tiyatro Gösteri Bileti',
+    'hero.slide4.ticketName': 'Jem Konser Bileti',
     
     // Index Page
     'index.whatWeOffer': 'Neler Sunuyoruz',
