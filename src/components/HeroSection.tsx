@@ -129,7 +129,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden py-20 lg:py-0">
       {/* Background Image/Video for All Slides */}
       <div className="absolute inset-0 z-0">
         {slides[currentSlide].video ? (
@@ -172,25 +172,28 @@ const HeroSection = () => {
       </div>
 
       {/* Left Content Section */}
-      <div className="relative z-10 w-full lg:w-3/5 px-8 lg:px-16">
-        <div className="mb-6">
-          <span className="inline-block px-5 py-2 rounded text-xs font-semibold tracking-wider uppercase bg-primary/20 text-primary border border-primary/30 mb-4">
+      <div className="relative z-10 w-full lg:w-3/5 px-4 sm:px-6 lg:px-16 py-8 lg:py-0">
+        <div className="mb-4 lg:mb-6">
+          <span className="inline-block px-4 py-1.5 lg:px-5 lg:py-2 rounded text-xs font-semibold tracking-wider uppercase bg-primary/20 text-primary border border-primary/30 mb-3 lg:mb-4">
             {slides[currentSlide].subtitle}
           </span>
         </div>
         
-        <h1 className={`hero-text mb-6 ${language === 'TR' ? 'text-3xl md:text-4xl lg:text-5xl' : ''}`}>
+        <h1 className={`hero-text mb-4 lg:mb-6 ${language === 'TR' 
+          ? 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl' 
+          : 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl'
+        }`}>
           {slides[currentSlide].title}
         </h1>
         
-        <p className="hero-subtitle mb-10 max-w-xl text-lg leading-relaxed">
+        <p className="hero-subtitle mb-6 lg:mb-10 max-w-xl text-base sm:text-lg leading-relaxed">
           {slides[currentSlide].description}
         </p>
 
-        <div className="flex gap-4 flex-wrap">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           {slides[currentSlide].ctaText && slides[currentSlide].ctaLink && (
-            <Link to={slides[currentSlide].ctaLink}>
-              <Button size="lg" className="btn-spotlight px-10 py-6 text-base font-semibold">
+            <Link to={slides[currentSlide].ctaLink} className="w-full sm:w-auto">
+              <Button size="lg" className="btn-spotlight w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base font-semibold">
                 {slides[currentSlide].ctaText}
               </Button>
             </Link>
@@ -198,18 +201,18 @@ const HeroSection = () => {
           {slides[currentSlide].showBuyTicket && (
             <Button 
               size="lg" 
-              className="px-10 py-6 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90"
+              className="w-full sm:w-auto px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90"
               onClick={handleBuyTicket}
               disabled={isProcessingTicket}
             >
-              <Ticket className="mr-2 h-5 w-5" />
+              <Ticket className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               {isProcessingTicket ? t('hero.slide4.processing') : t('hero.slide4.buyTicket')}
             </Button>
           )}
         </div>
 
         {/* Slide Indicators */}
-        <div className="flex space-x-3 mt-16">
+        <div className="flex space-x-3 mt-8 lg:mt-16 justify-center lg:justify-start">
           {slides.map((_, index) => (
             <button
               key={index}
@@ -225,10 +228,10 @@ const HeroSection = () => {
       </div>
 
       {/* Right Image/Video Section */}
-      <div className="hidden lg:flex relative z-10 w-2/5 h-full items-center justify-center px-8">
-        <div className={`relative w-full ${currentSlide === 0 ? 'max-w-3xl' : 'max-w-2xl'}`}>
+      <div className="flex relative z-10 w-full lg:w-2/5 h-auto lg:h-full items-center justify-center px-4 sm:px-6 lg:px-8 mt-8 lg:mt-0">
+        <div className={`relative w-full ${currentSlide === 0 ? 'max-w-md sm:max-w-lg lg:max-w-3xl' : 'max-w-sm sm:max-w-md lg:max-w-2xl'}`}>
           {slides[currentSlide].video ? (
-            <div className="relative w-full rounded-2xl shadow-2xl overflow-hidden bg-black">
+            <div className="relative w-full rounded-xl lg:rounded-2xl shadow-2xl overflow-hidden bg-black">
               <video
                 src={slides[currentSlide].video}
                 autoPlay
@@ -244,7 +247,7 @@ const HeroSection = () => {
             <img
               src={slides[currentSlide].image}
               alt={slides[currentSlide].title}
-              className="relative w-full h-auto object-contain rounded-2xl shadow-2xl"
+              className="relative w-full h-auto object-contain rounded-xl lg:rounded-2xl shadow-2xl"
             />
           )}
         </div>
@@ -253,16 +256,18 @@ const HeroSection = () => {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded bg-muted/40 hover:bg-muted/60 border border-border flex items-center justify-center text-foreground transition-all"
+        className="absolute left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded bg-muted/60 hover:bg-muted/80 border border-border flex items-center justify-center text-foreground transition-all backdrop-blur-sm"
+        aria-label="Previous slide"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
       
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded bg-muted/40 hover:bg-muted/60 border border-border flex items-center justify-center text-foreground transition-all"
+        className="absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded bg-muted/60 hover:bg-muted/80 border border-border flex items-center justify-center text-foreground transition-all backdrop-blur-sm"
+        aria-label="Next slide"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
     </section>
   );
