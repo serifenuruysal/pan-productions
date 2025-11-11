@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import NewsletterSection from '@/components/NewsletterSection';
 import SEO from '@/components/SEO';
@@ -20,32 +19,7 @@ import {
 const Marketing = () => {
   const { t } = useLanguage();
   
-  const services = [
-    {
-      icon: Target,
-      title: t('marketing.service1Title'),
-      description: t('marketing.service1Description'),
-      features: [t('marketing.service1Feature1'), t('marketing.service1Feature2'), t('marketing.service1Feature3'), t('marketing.service1Feature4')]
-    },
-    {
-      icon: Megaphone,
-      title: t('marketing.service2Title'),
-      description: t('marketing.service2Description'),
-      features: [t('marketing.service2Feature1'), t('marketing.service2Feature2'), t('marketing.service2Feature3'), t('marketing.service2Feature4')]
-    },
-    {
-      icon: Camera,
-      title: t('marketing.service3Title'),
-      description: t('marketing.service3Description'),
-      features: [t('marketing.service3Feature1'), t('marketing.service3Feature2'), t('marketing.service3Feature3'), t('marketing.service3Feature4')]
-    },
-    {
-      icon: Globe,
-      title: t('marketing.service4Title'),
-      description: t('marketing.service4Description'),
-      features: [t('marketing.service4Feature1'), t('marketing.service4Feature2'), t('marketing.service4Feature3'), t('marketing.service4Feature4')]
-    }
-  ];
+  // Services list removed as requested
 
   const achievements = [
     {
@@ -118,31 +92,7 @@ const Marketing = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/20">
-                <CardHeader>
-                  <div className="flex items-center mb-4">
-                    <div className="p-3 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <service.icon className="h-6 w-6 text-primary" />
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                  <CardDescription className="text-base">{service.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3" />
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {/* Services removed as per request */}
         </div>
       </section>
 
