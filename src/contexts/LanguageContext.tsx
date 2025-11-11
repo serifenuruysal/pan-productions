@@ -89,7 +89,7 @@ const translations = {
     'index.feature.passion.description': 'Dedicated to bringing powerful stories and performances to life',
     
     'index.featured': 'On Stage Now',
-    'index.featuredTitle': 'Featured Productions',
+    'index.featuredTitle': 'Productions',
     'index.featuredDescription': 'Experience our current theatrical performances',
     'index.featured.earnest.title': 'The Importance of Being Earnest',
     'index.featured.earnest.subtitle': 'A Comedy of Manners',
@@ -745,7 +745,7 @@ const translations = {
     'index.feature.passion.description': 'Güçlü hikayeleri ve performansları sahneye taşımaya adanmışlık',
     
     'index.featured': 'Şu Anda Sahnede',
-    'index.featuredTitle': 'Öne Çıkan Prodüksiyonlar',
+    'index.featuredTitle': 'Prodüksiyonlar',
     'index.featuredDescription': 'Güncel tiyatro gösterilerimizi deneyimleyin',
     'index.featured.earnest.title': 'Ciddi Olmanın Önemi',
     'index.featured.earnest.subtitle': 'Bir Görgü Komedisi',

@@ -162,7 +162,7 @@ const Index = () => {
                 status: t('index.featured.earnest.status'),
                 venue: language === 'EN' ? 'Tower Theatre' : 'Tower Theatre',
                 dates: language === 'EN' ? 'Various dates' : 'Çeşitli tarihler',
-                image: '/images/earnest-tower.jpg',
+                image: '/images/importance-of-being-earnest.jpg',
                 description: t('index.featured.earnest.description')
               },
               {
@@ -203,12 +203,6 @@ const Index = () => {
                     alt={production.title}
                     className="relative z-10 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                   />
-                  
-                  <div className="absolute top-4 right-4 z-20">
-                    <Badge className="bg-muted text-muted-foreground">
-                      {production.status}
-                    </Badge>
-                  </div>
                 </div>
                 <CardContent className="p-8">
                   <div className="flex items-center gap-4 mb-3 text-sm text-muted-foreground">
@@ -250,7 +244,7 @@ const Index = () => {
           <div className="text-center mb-16">
             {/* ...existing code... */}
             <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              {language === 'EN' ? 'Featured Workshops' : 'Öne Çıkan Atölyeler'}
+              {language === 'EN' ? 'Pan Academy Workshops' : 'Pan Akademi Atölyeleri'}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               {language === 'EN' ? 'Develop your skills with our expert-led workshops and training programs' : 'Uzman eğitmenler tarafından verilen atölye ve eğitim programlarımızla becerilerinizi geliştirin'}
