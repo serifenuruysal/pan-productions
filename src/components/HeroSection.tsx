@@ -171,8 +171,34 @@ const HeroSection = () => {
              style={{ transform: 'translate(-50%, -50%) rotate(-30deg)' }} />
       </div>
 
-      {/* Left Content Section */}
-      <div className="relative z-10 w-full lg:w-3/5 px-4 sm:px-6 lg:px-16 py-8 lg:py-0">
+      {/* Left Image/Video Section */}
+      <div className="flex relative z-10 w-full lg:w-2/5 h-auto lg:h-full items-center justify-start px-4 sm:px-6 lg:px-8 mt-8 lg:mt-0 order-1 lg:order-1">
+        <div className={`relative w-full ${currentSlide === 0 ? 'max-w-sm sm:max-w-md lg:max-w-xl' : 'max-w-sm sm:max-w-md lg:max-w-2xl'}`}>
+          {slides[currentSlide].video ? (
+            <div className="relative w-full rounded-xl lg:rounded-2xl shadow-2xl overflow-hidden bg-black">
+              <video
+                src={slides[currentSlide].video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto object-contain"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          ) : (
+            <img
+              src={slides[currentSlide].image}
+              alt={slides[currentSlide].title}
+              className="relative w-full h-auto object-contain rounded-xl lg:rounded-2xl shadow-2xl"
+            />
+          )}
+        </div>
+      </div>
+
+      {/* Right Content Section */}
+      <div className="relative z-10 w-full lg:w-3/5 px-4 sm:px-6 lg:px-16 py-8 lg:py-0 order-2 lg:order-2">
         <div className="mb-4 lg:mb-6">
           <span className="inline-block px-4 py-1.5 lg:px-5 lg:py-2 rounded text-xs font-semibold tracking-wider uppercase bg-primary/20 text-primary border border-primary/30 mb-3 lg:mb-4">
             {slides[currentSlide].subtitle}
@@ -224,32 +250,6 @@ const HeroSection = () => {
               }`}
             />
           ))}
-        </div>
-      </div>
-
-      {/* Right Image/Video Section */}
-      <div className="flex relative z-10 w-full lg:w-2/5 h-auto lg:h-full items-center justify-center px-4 sm:px-6 lg:px-8 mt-8 lg:mt-0">
-        <div className={`relative w-full ${currentSlide === 0 ? 'max-w-md sm:max-w-lg lg:max-w-3xl' : 'max-w-sm sm:max-w-md lg:max-w-2xl'}`}>
-          {slides[currentSlide].video ? (
-            <div className="relative w-full rounded-xl lg:rounded-2xl shadow-2xl overflow-hidden bg-black">
-              <video
-                src={slides[currentSlide].video}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-auto object-contain"
-              >
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          ) : (
-            <img
-              src={slides[currentSlide].image}
-              alt={slides[currentSlide].title}
-              className="relative w-full h-auto object-contain rounded-xl lg:rounded-2xl shadow-2xl"
-            />
-          )}
         </div>
       </div>
 
