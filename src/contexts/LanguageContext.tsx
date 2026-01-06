@@ -132,6 +132,7 @@ const translations = {
     'newsletter.success': 'Welcome to Pan Productions!',
     'newsletter.successMessage': 'You\'ve successfully subscribed to our newsletter.',
     
+    
     // Workshops Page
     'workshops.badgeTitle': 'Pan Academy Workshops',
     'workshops.heroTitle1': 'Elevate Your',
