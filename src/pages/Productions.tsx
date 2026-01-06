@@ -217,6 +217,21 @@ const Productions = () => {
     ],
     music: [
       {
+        id: 'jem-candlelit-concert',
+        title: 'Jem: Intimate Candlelit Concert',
+        author: '',
+        status: 'Past',
+        description: {
+          EN: 'Experience an intimate candlelit concert with Jem at St. Pancras Old Church on December 8. Let her ethereal voice and poetic melodies create a soulful, unforgettable evening. Tickets are limited, reserve yours now!',
+          TR: 'St. Pancras Old Church\'ta Jem ile samimi mum ışığında bir konser deneyimi. Eterik sesi ve şiirsel melodileriyle ruhani, unutulmaz bir akşam. Biletler sınırlı sayıda!'
+        },
+        image: '/images/jem-concert.jpg',
+        dates: 'December 8, 2025',
+        venue: 'St. Pancras Old Church, London',
+        duration: 'Concert',
+        ticketPrice: 'See Archive'
+      },
+      {
         id: 'erkan-ogur-bulent',
         title: 'Erkan Oğur & Bülent Ortaçgil',
         author: '',

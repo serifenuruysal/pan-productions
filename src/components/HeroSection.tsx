@@ -21,6 +21,8 @@ interface Slide {
   ticketLink?: string;
 }
 
+const STRIPE_TICKET_LINK = 'https://buy.stripe.com/9B614f41wdxf2fsgSueZ201';
+
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isProcessingTicket, setIsProcessingTicket] = useState(false);
@@ -38,7 +40,7 @@ const HeroSection = () => {
       showBuyTicket: true,
       ticketPrice: 25.00,
       ticketName: t('hero.slide4.ticketName'),
-      ticketLink: 'https://buy.stripe.com/5kQ3cn1To0KtbQ2byaeZ200'
+      ticketLink: STRIPE_TICKET_LINK
     },
     {
       id: 'productions',
@@ -173,7 +175,7 @@ const HeroSection = () => {
 
       {/* Left Image/Video Section */}
       <div className="flex relative z-10 w-full lg:w-2/5 h-auto lg:h-full items-center justify-start px-4 sm:px-6 lg:px-8 mt-8 lg:mt-0 order-1 lg:order-1">
-        <div className={`relative w-full ${currentSlide === 0 ? 'max-w-sm sm:max-w-md lg:max-w-xl' : 'max-w-sm sm:max-w-md lg:max-w-2xl'}`}>
+        <div className={`relative w-full ${currentSlide === 0 ? 'max-w-xs sm:max-w-sm lg:max-w-md' : 'max-w-sm sm:max-w-md lg:max-w-2xl'}`}>
           {slides[currentSlide].video ? (
             <div className="relative w-full rounded-xl lg:rounded-2xl shadow-2xl overflow-hidden bg-black">
               <video

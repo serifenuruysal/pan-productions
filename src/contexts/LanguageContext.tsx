@@ -51,14 +51,14 @@ const translations = {
     'hero.slide3.description': 'Our workshops inspire and nurture the next generation of performers.',
     'hero.slide3.cta': 'Join a Workshop',
     
-    'hero.slide4.title': 'Jem: Intimate Candlelit Concert',
-    'hero.slide4.subtitle': 'December 8, St. Pancras Old Church',
-    'hero.slide4.description': 'Experience an intimate candlelit concert with Jem at St. Pancras Old Church on December 8. Let her ethereal voice and poetic melodies create a soulful, unforgettable evening. Tickets are limited, reserve yours now!',
+    'hero.slide4.title': 'GRİPİN returns to London',
+    'hero.slide4.subtitle': 'Jazz Cafe, Camden Town, Sunday, January 11, 2026, 7:00 PM',
+    'hero.slide4.description': 'GRiPİN is back at one of London’s most iconic venues, Jazz Cafe, for a special live performance. Join us for an unforgettable night of powerful music, featuring special guest IKIYEONKALA.',
     'hero.slide4.cta': 'Learn More',
     'hero.slide4.video': '/videos/showcase.mp4', // Update with your video path
     'hero.slide4.buyTicket': 'Buy Ticket',
     'hero.slide4.processing': 'Processing...',
-    'hero.slide4.ticketName': 'Jem Concert Ticket',
+    'hero.slide4.ticketName': 'Gripin Concert Ticket',
     
     // Index Page
     'index.whatWeOffer': 'What We Offer',
