@@ -21,7 +21,7 @@ interface Slide {
   ticketLink?: string;
 }
 
-const STRIPE_TICKET_LINK = 'https://buy.stripe.com/9B614f41wdxf2fsgSueZ201';
+const STRIPE_TICKET_LINK = 'https://buy.stripe.com/aFa00bapUfFng6i9q2eZ204';
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -137,12 +137,14 @@ const HeroSection = () => {
         {slides[currentSlide].video ? (
           <>
             <video
+              key={slides[currentSlide].video}
               src={slides[currentSlide].video}
               autoPlay
               loop
               muted
               playsInline
               className="w-full h-full object-cover opacity-50 transition-opacity duration-500"
+              onError={(e) => console.error('Background video failed to load:', e)}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
           </>
@@ -179,12 +181,14 @@ const HeroSection = () => {
           {slides[currentSlide].video ? (
             <div className="relative w-full rounded-xl lg:rounded-2xl shadow-2xl overflow-hidden bg-black">
               <video
+                key={slides[currentSlide].video}
                 src={slides[currentSlide].video}
                 autoPlay
                 loop
                 muted
                 playsInline
                 className="w-full h-auto object-contain"
+                onError={(e) => console.error('Video failed to load:', e)}
               >
                 Your browser does not support the video tag.
               </video>
