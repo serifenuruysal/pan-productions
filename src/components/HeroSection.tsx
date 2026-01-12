@@ -42,16 +42,16 @@ const HeroSection = () => {
       ticketName: t('hero.slide4.ticketName'),
       ticketLink: STRIPE_TICKET_LINK
     },
-    {
-      id: 'productions',
-      title: t('hero.slide1.title'),
-      subtitle: t('hero.slide1.subtitle'),
-      description: t('hero.slide1.description'),
-      image: '/images/hero-slide-1.jpg',
-      ctaText: t('hero.slide1.cta'),
-      ctaLink: '/productions',
-      type: 'current'
-    },
+    // {
+    //   id: 'productions',
+    //   title: t('hero.slide1.title'),
+    //   subtitle: t('hero.slide1.subtitle'),
+    //   description: t('hero.slide1.description'),
+    //   image: '/images/hero-slide-1.jpg',
+    //   ctaText: t('hero.slide1.cta'),
+    //   ctaLink: '/productions',
+    //   type: 'current'
+    // },
     {
       id: 'pr-marketing',
       title: t('hero.slide2.title'),

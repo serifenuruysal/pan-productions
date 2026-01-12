@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Calendar, MapPin, Clock, Ticket } from 'lucide-react';
-import NewsletterSection from '@/components/NewsletterSection';
 import SEO from '@/components/SEO';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -130,7 +129,7 @@ const Productions = () => {
         dates: '6-18 January 2020',
         venue: 'Tower Theatre, 16 Northwold Road, Stoke Newington, London N16 7HR',
         duration: '2h 30min (including interval)',
-        ticketPrice: '£12-£25'
+        ticketPrice: 'See Archive'
       },
       {
         id: 'tut-elimden-rovni',
@@ -263,7 +262,7 @@ const Productions = () => {
         dates: '20 March 2011, 18:45',
         venue: 'Union Chapel, Compton Terrace, London N1 2UN',
         duration: 'Concert',
-        ticketPrice: '£20-£30 (VIP: £25 at door)'
+        ticketPrice: 'See Archive'
       },
       {
         id: 'olcay-bayir-fundraiser',
@@ -278,7 +277,7 @@ const Productions = () => {
         dates: 'Friday 21 April, 7:30PM-1:00AM',
         venue: 'Epic Dalston, 13 Stoke Newington Rd N16 8BH',
         duration: 'Concert & DJ Event',
-        ticketPrice: '£10 Advance'
+        ticketPrice: 'See Archive'
       },
     ],
     film: [
@@ -389,9 +388,6 @@ const Productions = () => {
           </div>
         </div>
       </div>
-
-      {/* Newsletter Section */}
-      <NewsletterSection />
     </div>
   );
 };

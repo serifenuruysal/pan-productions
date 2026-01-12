@@ -34,7 +34,7 @@ const Footer = () => {
               />
               <div>
                 <p className="uppercase text-xs font-semibold tracking-[0.3em] text-primary">Pan Productions</p>
-                <p className="text-sm text-muted-foreground">Theatre & Performing Arts Collective</p>
+                <p className="text-sm text-muted-foreground">Theatre & Performing Arts</p>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed mb-6">

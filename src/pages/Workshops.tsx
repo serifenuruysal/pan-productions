@@ -5,7 +5,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import NewsletterSection from '@/components/NewsletterSection';
 import SEO from '@/components/SEO';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { 
@@ -218,14 +217,11 @@ const Workshops = () => {
             <h1 className="text-5xl font-heading font-bold mb-6 text-foreground">
               {t('workshops.heroTitle1')} <span className="text-primary">{t('workshops.heroTitle2')}</span>
             </h1>
+            <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
+              Pan Academy is a subdivision of Pan Productions, where we apply our passion for performing arts to the education of those who are equally passionate. We offer a varied range of acting classes designed to suit a mixture of participants with an emphasis on participants speaking English as a second language or are new to theatre.
+            </p>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              {t('workshops.heroParagraph1')}
-            </p>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              {t('workshops.heroParagraph2')}
-            </p>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              {t('workshops.heroParagraph3')}
+              Whether you're looking to step into a foreign practice for the first time or you want to enhance your previous knowledge as a seasoned performer, we have a workshop for you. Our evening, weekend and part-time workshops are structured to fit around your busy schedule. Our expert instructors provide valuable feedback for your craft in intimate groups where you will get specialised attention to take you a step further. Pan Academy is here to take you to the next step, wherever you are in your journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
@@ -438,9 +434,6 @@ const Workshops = () => {
           </div>
         </div>
       </section>
-
-      {/* Newsletter Section */}
-      <NewsletterSection />
     </div>
   );
 };

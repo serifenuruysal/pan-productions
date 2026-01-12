@@ -345,62 +345,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose Pan Productions Section removed as requested */}
-
-      {/* Testimonials Section */}
-      <section className="py-24 bg-gradient-to-br from-primary/5 via-background to-accent/5">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-4xl md:text-6xl font-bold mb-6 text-foreground">
-              {language === 'EN' ? 'Testimonials' : 'Görüşler'}
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {language === 'EN' ? 'Hear from our audience and students about their experiences' : 'İzleyicilerimizden ve öğrencilerimizden deneyimlerini dinleyin'}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                name: t('index.testimonial1.name'),
-                role: t('index.testimonial1.role'),
-                content: t('index.testimonial1.content'),
-                rating: 5
-              },
-              {
-                name: t('index.testimonial2.name'),
-                role: t('index.testimonial2.role'),
-                content: t('index.testimonial2.content'),
-                rating: 5
-              },
-              {
-                name: t('index.testimonial3.name'),
-                role: t('index.testimonial3.role'),
-                content: t('index.testimonial3.content'),
-                rating: 5
-              }
-            ].map((testimonial, index) => (
-              <Card key={index} className="bg-card/50 border-border/60">
-                <CardContent className="pt-8">
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="text-foreground mb-6 leading-relaxed italic">
-                    "{testimonial.content}"
-                  </p>
-                  <div className="border-t border-border/50 pt-4">
-                    <p className="font-semibold text-foreground">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Newsletter Section */}
       <NewsletterSection />
 

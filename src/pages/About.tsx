@@ -231,63 +231,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-16">
-                            <h2 className="text-4xl font-bold mb-4">
-                {t('about.testimonialsTitle')}
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                {t('about.testimonialsSubtitle')}
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card className="relative overflow-hidden border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group">
-                <CardContent className="p-8">
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-all duration-500"></div>
-                  <div className="relative">
-                    <div className="text-6xl text-primary/20 mb-4 font-serif">"</div>
-                    <p className="text-muted-foreground italic text-lg leading-relaxed mb-6">
-                      {t('about.testimonial1')}
-                    </p>
-                    <p className="text-sm font-semibold text-primary">{t('about.testimonial1Source')}</p>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="relative overflow-hidden border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group">
-                <CardContent className="p-8">
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-all duration-500"></div>
-                  <div className="relative">
-                    <div className="text-6xl text-primary/20 mb-4 font-serif">"</div>
-                    <p className="text-muted-foreground italic text-lg leading-relaxed mb-6">
-                      {t('about.testimonial2')}
-                    </p>
-                    <p className="text-sm font-semibold text-primary">{t('about.testimonial2Source')}</p>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="relative overflow-hidden border-border/50 hover:border-primary/30 hover:shadow-xl transition-all duration-300 group">
-                <CardContent className="p-8">
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-all duration-500"></div>
-                  <div className="relative">
-                    <div className="text-6xl text-primary/20 mb-4 font-serif">"</div>
-                    <p className="text-muted-foreground italic text-lg leading-relaxed mb-6">
-                      {t('about.testimonial3')}
-                    </p>
-                    <p className="text-sm font-semibold text-primary">{t('about.testimonial3Source')}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Newsletter Section */}
       <NewsletterSection />
     </div>

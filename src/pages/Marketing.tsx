@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import NewsletterSection from '@/components/NewsletterSection';
+import { Card, CardContent } from '@/components/ui/card';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 import SEO from '@/components/SEO';
+import useEmblaCarousel from 'embla-carousel-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { 
   Target, 
@@ -18,6 +20,8 @@ import {
 
 const Marketing = () => {
   const { t } = useLanguage();
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [emblaRef] = useEmblaCarousel({ loop: true, align: 'start' });
   
   // Services list removed as requested
 
@@ -87,14 +91,113 @@ const Marketing = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              {t('marketing.description')}
-            </p>
+            <div className="max-w-4xl mx-auto space-y-6">
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                Got a play collecting dust on the shelf? Or a song waiting to be sung? Or perhaps an art piece looking to be exhibited?
+              </p>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                Whatever it is that you have on your mind, through our bespoke services for each project, Pan Productions will support you through each step along the way from campaign planning to media relations.
+              </p>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                We are always on the lookout for emerging and established artists alike, so if you are a creative in need of production support, get in touch with us!
+              </p>
+            </div>
           </div>
 
           {/* Services removed as per request */}
         </div>
       </section>
+
+      {/* PR & Marketing Archive */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-heading font-bold mb-4 text-foreground">
+              PR & Marketing Archive
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Productions we've supported through PR & Marketing
+            </p>
+          </div>
+
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-6">
+              {[
+                {
+                  title: 'JEM: Intimate Candlelit Concert',
+                  image: '/images/jem-concert.jpg',
+                  description: 'An ethereal evening of music at St. Pancras Old Church'
+                },
+                {
+                  title: 'English Kings Killing Foreigners',
+                  image: '/images/english-kings-killing-foreigners.jpg',
+                  description: 'A powerful theatrical production'
+                },
+                {
+                  title: 'Women Who Blow on Knots',
+                  image: '/images/women-who-blow-on-knots.jpg',
+                  description: 'An evocative performance piece'
+                }
+              ].map((production, index) => (
+                <div key={index} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]">
+                  <Card 
+                    className="group overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300"
+                    onClick={() => setSelectedImage(production.image)}
+                  >
+                    <div className="relative h-[500px] overflow-hidden">
+                      {/* Blurred background layer */}
+                      <div className="absolute inset-0">
+                        <img 
+                          src={production.image} 
+                          alt=""
+                          className="w-full h-full object-cover blur-2xl opacity-40 scale-110"
+                          onError={(e) => {
+                            e.currentTarget.src = '/images/hero-slide-2.jpg';
+                          }}
+                        />
+                      </div>
+                      
+                      {/* Main image layer */}
+                      <div className="absolute inset-0 flex items-center justify-center p-4">
+                        <img 
+                          src={production.image} 
+                          alt={production.title}
+                          className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                          onError={(e) => {
+                            e.currentTarget.src = '/images/hero-slide-2.jpg';
+                          }}
+                        />
+                      </div>
+                    </div>
+                    
+                    <CardContent className="p-6">
+                      <h3 className="font-heading text-xl font-bold mb-2 text-foreground">
+                        {production.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        {production.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Image Modal */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-5xl w-full p-0 bg-transparent border-0">
+          <div className="relative">
+            <img 
+              src={selectedImage || ''} 
+              alt="Production Poster"
+              className="w-full h-auto max-h-[90vh] object-contain"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary/10 to-secondary/10">
@@ -109,9 +212,6 @@ const Marketing = () => {
           </Link>
         </div>
       </section>
-
-      {/* Newsletter Section */}
-      <NewsletterSection />
     </div>
   );
 };
