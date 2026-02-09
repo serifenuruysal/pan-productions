@@ -51,14 +51,13 @@ const translations = {
     'hero.slide3.description': 'Our workshops inspire and nurture the next generation of performers.',
     'hero.slide3.cta': 'Join a Workshop',
     
-    'hero.slide4.title': 'GRİPİN returns to London',
-    'hero.slide4.subtitle': 'Jazz Cafe, Camden Town, Sunday, January 11, 2026, 7:00 PM',
-    'hero.slide4.description': 'GRiPİN is back at one of London’s most iconic venues, Jazz Cafe, for a special live performance. Join us for an unforgettable night of powerful music, featuring special guest IKIYEONKALA.',
+    'hero.slide4.title': 'Love of Rumi: Flow and Spirit',
+    'hero.slide4.subtitle': 'Mumford Theater, Cambridge - Friday, March 21, 2026, 7:00 PM',
+    'hero.slide4.description': 'Experience the essence of Rumi\'s poetry through a captivating fusion of fashion and performance, celebrating love, flow, and spirit. A mystical journey featuring whirling dervish dance, poetry, and 13th century costumes.',
     'hero.slide4.cta': 'Learn More',
-    'hero.slide4.video': '/videos/showcase.mp4', // Update with your video path
-    'hero.slide4.buyTicket': 'Buy Ticket',
+    'hero.slide4.buyTicket': 'Buy Tickets - £27',
     'hero.slide4.processing': 'Processing...',
-    'hero.slide4.ticketName': 'Gripin Concert Ticket',
+    'hero.slide4.ticketName': 'Love of Rumi Ticket',
     
     // Index Page
     'index.whatWeOffer': 'What We Offer',
@@ -703,14 +702,13 @@ const translations = {
     'hero.slide3.description': 'Atölyelerimiz gelecek nesil sanatçılara ilham verir ve onları geliştirir.',
     'hero.slide3.cta': 'Atölyelere Katılın',
     
-    'hero.slide4.title': 'Jem: Samimi Mum Işığı Konseri',
-    'hero.slide4.subtitle': '8 Aralık, St. Pancras Old Church',
-    'hero.slide4.description': '8 Aralık\'ta St. Pancras Old Church\'te Jem ile samimi bir mum ışığı konseri yaşayın. Onun göksel sesi ve şiirsel melodileri ruhani, unutulmaz bir akşam yaratacak. Biletler sınırlı, şimdi rezervasyon yapın!',
+    'hero.slide4.title': 'Rumi\'nin Aşkı: Akış ve Ruh',
+    'hero.slide4.subtitle': 'Mumford Tiyatrosu, Cambridge - Cuma, 21 Mart 2026, 19:00',
+    'hero.slide4.description': 'Rumi\'nin şiirlerinin özünü, aşk, akış ve ruhu kutlayan büyüleyici bir moda ve performans füzyonu ile deneyimleyin. Semazen dansı, şiir ve 13. yüzyıl kostümleri içeren mistik bir yolculuk.',
     'hero.slide4.cta': 'Daha Fazla Bilgi',
-    'hero.slide4.video': '/videos/showcase.mp4', // Video yolunu güncelleyin
-    'hero.slide4.buyTicket': 'Bilet Al',
+    'hero.slide4.buyTicket': 'Bilet Al - £27',
     'hero.slide4.processing': 'İşleniyor...',
-    'hero.slide4.ticketName': 'Jem Konser Bileti',
+    'hero.slide4.ticketName': 'Rumi\'nin Aşkı Bileti',
     
     // Index Page
     'index.whatWeOffer': 'Neler Sunuyoruz',

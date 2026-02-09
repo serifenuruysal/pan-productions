@@ -27,25 +27,54 @@ interface Production {
 const ProductionCard = ({ production, getStatusColor, t }: { production: Production; getStatusColor: (status: string) => string; t: (key: string) => string }) => {
   const [open, setOpen] = useState(false);
   const { language } = useLanguage();
+  const isVideo = production.image.endsWith('.mp4') || production.image.endsWith('.webm');
+  
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Card className="production-card group overflow-hidden cursor-pointer">
           <div className="relative h-[500px] overflow-hidden bg-muted flex items-center justify-center">
-            {/* Blurred Background Image */}
-            <div className="absolute inset-0">
-              <img
-                src={production.image}
-                alt=""
-                className="w-full h-full object-cover blur-xl scale-110 opacity-60"
-              />
-            </div>
-            {/* Main Image */}
-            <img
-              src={production.image}
-              alt={production.title}
-              className="relative z-10 w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-            />
+            {isVideo ? (
+              <>
+                {/* Video Background */}
+                <div className="absolute inset-0">
+                  <video
+                    src={production.image}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover blur-xl scale-110 opacity-60"
+                  />
+                </div>
+                {/* Main Video */}
+                <video
+                  src={production.image}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="relative z-10 w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+              </>
+            ) : (
+              <>
+                {/* Blurred Background Image */}
+                <div className="absolute inset-0">
+                  <img
+                    src={production.image}
+                    alt=""
+                    className="w-full h-full object-cover blur-xl scale-110 opacity-60"
+                  />
+                </div>
+                {/* Main Image */}
+                <img
+                  src={production.image}
+                  alt={production.title}
+                  className="relative z-10 w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+              </>
+            )}
             {/* Status Badge */}
             <div className="absolute top-4 right-4 z-20">
               <Badge className={getStatusColor(production.status)}>
@@ -100,7 +129,11 @@ const ProductionCard = ({ production, getStatusColor, t }: { production: Product
         </Card>
       </DialogTrigger>
       <DialogContent className="max-w-2xl flex flex-col items-center">
-        <img src={production.image} alt={production.title} className="w-full h-auto max-h-[80vh] object-contain rounded-lg" />
+        {isVideo ? (
+          <video src={production.image} autoPlay loop muted playsInline className="w-full h-auto max-h-[80vh] object-contain rounded-lg" />
+        ) : (
+          <img src={production.image} alt={production.title} className="w-full h-auto max-h-[80vh] object-contain rounded-lg" />
+        )}
         <div className="mt-4 text-center">
           <h3 className="font-heading text-2xl font-bold mb-2">{production.title}</h3>
           {production.author && <p className="text-muted-foreground text-sm mb-2">{t('productions.by')} {production.author}</p>}
@@ -114,6 +147,22 @@ const Productions = () => {
   const { t, language } = useLanguage();
   const categories = {
     theatre: [
+      {
+        id: 'love-of-rumi',
+        title: 'Love of Rumi: Flow and Spirit',
+        titleEn: 'Love of Rumi: Flow and Spirit',
+        author: 'Aya Art, Berrin Bugay Lawler',
+        status: 'Current',
+        description: {
+          EN: 'Experience the essence of Rumi\'s poetry through a captivating fusion of fashion and performance, celebrating love, flow, and spirit. A mystical journey featuring whirling dervish dance, choir, poetry reading, solo performances, and a costume parade with stylised 13th century costumes. This is not just a stage performance; it is an artistic experience that bridges the heart, mind, and soul.',
+          TR: 'Rumi\'nin şiirlerinin özünü, aşk, akış ve ruhu kutlayan büyüleyici bir moda ve performans füzyonu ile deneyimleyin. Semazen dansı, koro, şiir okuma, solo performanslar ve 13. yüzyıl kostümleriyle kostüm gösterisi içeren mistik bir yolculuk. Bu sadece bir sahne performansı değil; kalbi, zihni ve ruhu birleştiren sanatsal bir deneyimdir.'
+        },
+        image: '/images/love-of-rumi.jpg',
+        dates: 'Friday, March 21, 2026, 7:00 PM',
+        venue: 'Mumford Theater, Cambridge',
+        duration: 'Performative Fashion Show',
+        ticketPrice: '£27'
+      },
       {
         id: 'earnest',
         title: 'The Importance of Being Earnest',
@@ -215,6 +264,21 @@ const Productions = () => {
       // Art productions will be added here
     ],
     music: [
+      {
+        id: 'gripin-jazz-cafe',
+        title: 'GRİPİN returns to London',
+        author: '',
+        status: 'Past',
+        description: {
+          EN: 'GRiPİN is back at one of London\'s most iconic venues, Jazz Cafe, for a special live performance. Join us for an unforgettable night of powerful music, featuring special guest IKIYEONKALA.',
+          TR: 'GRiPİN, Londra\'nın en ikonik mekanlarından Jazz Cafe\'de özel bir canlı performans için geri döndü. Özel konuk IKIYEONKALA ile güçlü müzik dolu unutulmaz bir geceye katılın.'
+        },
+        image: '/videos/showcase.mp4',
+        dates: 'Sunday, January 11, 2026, 7:00 PM',
+        venue: 'Jazz Cafe, Camden Town',
+        duration: 'Concert',
+        ticketPrice: 'See Archive'
+      },
       {
         id: 'jem-candlelit-concert',
         title: 'Jem: Intimate Candlelit Concert',

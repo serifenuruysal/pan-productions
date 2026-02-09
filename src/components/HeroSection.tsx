@@ -30,17 +30,16 @@ const HeroSection = () => {
 
   const slides: Slide[] = [
     {
-      id: 'video-show',
+      id: 'love-of-rumi',
       title: t('hero.slide4.title'),
       subtitle: t('hero.slide4.subtitle'),
       description: t('hero.slide4.description'),
-      image: '/images/hero-slide-1.jpg', // Fallback image
-      video: t('hero.slide4.video'),
+      image: '/images/love-of-rumi.jpg',
       type: 'current',
       showBuyTicket: true,
-      ticketPrice: 25.00,
+      ticketPrice: 27.00,
       ticketName: t('hero.slide4.ticketName'),
-      ticketLink: STRIPE_TICKET_LINK
+      ticketLink: 'https://buy.stripe.com/eVqcMXeGa1Ox8DQbyaeZ206'
     },
     // {
     //   id: 'productions',
