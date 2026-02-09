@@ -21,7 +21,7 @@ interface Slide {
   ticketLink?: string;
 }
 
-const STRIPE_TICKET_LINK = 'https://buy.stripe.com/aFa00bapUfFng6i9q2eZ204';
+const STRIPE_TICKET_LINK = 'https://buy.stripe.com/3cI5kv69E78R3jweKmeZ207';
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -37,9 +37,9 @@ const HeroSection = () => {
       image: '/images/love-of-rumi.jpg',
       type: 'current',
       showBuyTicket: true,
-      ticketPrice: 27.00,
+      ticketPrice: 25.00,
       ticketName: t('hero.slide4.ticketName'),
-      ticketLink: 'https://buy.stripe.com/eVqcMXeGa1Ox8DQbyaeZ206'
+      ticketLink: 'https://buy.stripe.com/3cI5kv69E78R3jweKmeZ207'
     },
     // {
     //   id: 'productions',

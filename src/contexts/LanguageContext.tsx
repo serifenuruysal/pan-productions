@@ -55,7 +55,7 @@ const translations = {
     'hero.slide4.subtitle': 'Mumford Theater, Cambridge - Friday, March 21, 2026, 7:00 PM',
     'hero.slide4.description': 'Experience the essence of Rumi\'s poetry through a captivating fusion of fashion and performance, celebrating love, flow, and spirit. A mystical journey featuring whirling dervish dance, poetry, and 13th century costumes.',
     'hero.slide4.cta': 'Learn More',
-    'hero.slide4.buyTicket': 'Buy Tickets - £27',
+    'hero.slide4.buyTicket': 'Buy Tickets - £25',
     'hero.slide4.processing': 'Processing...',
     'hero.slide4.ticketName': 'Love of Rumi Ticket',
     
@@ -706,7 +706,7 @@ const translations = {
     'hero.slide4.subtitle': 'Mumford Tiyatrosu, Cambridge - Cuma, 21 Mart 2026, 19:00',
     'hero.slide4.description': 'Rumi\'nin şiirlerinin özünü, aşk, akış ve ruhu kutlayan büyüleyici bir moda ve performans füzyonu ile deneyimleyin. Semazen dansı, şiir ve 13. yüzyıl kostümleri içeren mistik bir yolculuk.',
     'hero.slide4.cta': 'Daha Fazla Bilgi',
-    'hero.slide4.buyTicket': 'Bilet Al - £27',
+    'hero.slide4.buyTicket': 'Bilet Al - £25',
     'hero.slide4.processing': 'İşleniyor...',
     'hero.slide4.ticketName': 'Rumi\'nin Aşkı Bileti',
     

@@ -161,7 +161,7 @@ const Productions = () => {
         dates: 'Friday, March 21, 2026, 7:00 PM',
         venue: 'Mumford Theater, Cambridge',
         duration: 'Performative Fashion Show',
-        ticketPrice: '£27'
+        ticketPrice: '£25'
       },
       {
         id: 'earnest',
