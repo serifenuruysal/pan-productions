@@ -26,7 +26,17 @@ const STRIPE_TICKET_LINK = 'https://buy.stripe.com/3cI5kv69E78R3jweKmeZ207';
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isProcessingTicket, setIsProcessingTicket] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const { t, language } = useLanguage();
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const slides: Slide[] = [
     {
@@ -134,7 +144,7 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex flex-col lg:flex-row items-center justify-center overflow-hidden py-20 lg:py-0">
       {/* Background Image/Video for All Slides */}
       <div className="absolute inset-0 z-0">
-        {slides[currentSlide].video ? (
+        {slides[currentSlide].video && !isMobile ? (
           <>
             <video
               key={slides[currentSlide].video}
@@ -143,8 +153,12 @@ const HeroSection = () => {
               loop
               muted
               playsInline
+              preload="metadata"
               className="w-full h-full object-cover opacity-50 transition-opacity duration-500"
-              onError={(e) => console.error('Background video failed to load:', e)}
+              onError={(e) => {
+                console.error('Background video failed to load:', e);
+                e.currentTarget.style.display = 'none';
+              }}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
           </>
@@ -178,7 +192,7 @@ const HeroSection = () => {
       {/* Left Image/Video Section */}
       <div className="flex relative z-10 w-full lg:w-1/2 h-auto lg:h-full items-center justify-start px-4 sm:px-6 lg:px-8 mt-8 lg:mt-0 order-1 lg:order-1">
         <div className={`relative w-full ${currentSlide === 0 ? 'max-w-2xl sm:max-w-3xl lg:max-w-4xl' : 'max-w-sm sm:max-w-md lg:max-w-2xl'}`}>
-          {slides[currentSlide].video ? (
+          {slides[currentSlide].video && !isMobile ? (
             <div className="relative w-full rounded-xl lg:rounded-2xl shadow-2xl overflow-hidden bg-black">
               <video
                 key={slides[currentSlide].video}
@@ -187,8 +201,13 @@ const HeroSection = () => {
                 loop
                 muted
                 playsInline
+                preload="auto"
+                poster={slides[currentSlide].image}
                 className="w-full h-auto object-contain"
-                onError={(e) => console.error('Video failed to load:', e)}
+                onError={(e) => {
+                  console.error('Video failed to load:', e);
+                  e.currentTarget.style.display = 'none';
+                }}
               >
                 Your browser does not support the video tag.
               </video>
