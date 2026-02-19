@@ -7,6 +7,7 @@
 3. Fill in your details and verify your email
 4. Complete the onboarding process
 
+
 ## Step 2: Create an Audience (Email List)
 
 1. In your Mailchimp dashboard, go to **Audience** → **Audience dashboard**
