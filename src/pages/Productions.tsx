@@ -20,6 +20,7 @@ interface Production {
   venue: string;
   duration: string;
   ticketPrice: string;
+  ticketLink?: string;
   titleEn?: string;
 }
 
@@ -117,8 +118,14 @@ const ProductionCard = ({ production, getStatusColor, t }: { production: Product
                 variant="spotlight" 
                 className="flex-1"
                 disabled={production.status === 'Past'}
+                onClick={(e) => {
+                  if (production.ticketLink) {
+                    e.stopPropagation();
+                    window.location.href = production.ticketLink;
+                  }
+                }}
               >
-                {production.status === 'Current' ? t('productions.buyTickets') : 
+                {(production.status === 'Current' || production.status === 'On Sale') ? t('productions.buyTickets') : 
                  production.status === 'Upcoming' ? t('productions.comingSoon') : t('productions.archive')}
               </Button>
               <Button variant="outline" size="icon">
@@ -152,7 +159,7 @@ const Productions = () => {
         title: 'Love of Rumi: Flow and Spirit',
         titleEn: 'Love of Rumi: Flow and Spirit',
         author: 'Aya Art, Berrin Bugay Lawler',
-        status: 'Current',
+        status: 'On Sale',
         description: {
           EN: 'Experience the essence of Rumi\'s poetry through a captivating fusion of fashion and performance, celebrating love, flow, and spirit. A mystical journey featuring whirling dervish dance, choir, poetry reading, solo performances, and a costume parade with stylised 13th century costumes. This is not just a stage performance; it is an artistic experience that bridges the heart, mind, and soul.',
           TR: 'Rumi\'nin şiirlerinin özünü, aşk, akış ve ruhu kutlayan büyüleyici bir moda ve performans füzyonu ile deneyimleyin. Semazen dansı, koro, şiir okuma, solo performanslar ve 13. yüzyıl kostümleriyle kostüm gösterisi içeren mistik bir yolculuk. Bu sadece bir sahne performansı değil; kalbi, zihni ve ruhu birleştiren sanatsal bir deneyimdir.'
@@ -162,6 +169,23 @@ const Productions = () => {
         venue: 'Mumford Theater, Cambridge',
         duration: 'Performative Fashion Show',
         ticketPrice: '£25'
+      },
+      {
+        id: 'sus',
+        title: 'Sus.',
+        titleEn: 'Sus.',
+        author: 'Ali Has',
+        status: 'On Sale',
+        description: {
+          EN: 'SUS.\n\nThe loudest form of injustice.\n\nSix-year-old Nazlı left home one morning.\nShe had her notebook in hand.\nAnd she never came back.\n\nSus. brings to the stage not just a disappearance, but the story of a system woven with silence, fear, and vested interests.\n\nIn a village in the shadow of stone houses, everyone knows something…\nBut no one speaks.\n\nAs the truth slowly comes to light amid feudal ties, unseen powers, and a silence passed down through generations, the audience is left with one question:\n\nWho does silence protect?\nAnd who is the real culprit — those who don\'t speak, or the system that won\'t let them?\n\nSus. is a shocking stage experience that pushes the boundaries of justice and calls on the audience to confront their own conscience.\n\nDates:\n1–2–3–4 April 2026',
+          TR: 'SUS.\n\nAdaletsizliğin en gürültülü hali.\n\nAltı yaşındaki Nazlı bir sabah evden çıktı.\nElinde defteri vardı.\nVe bir daha hiç dönmedi.\n\nSus., yalnızca bir kayboluşun değil; sessizliğin, korkunun ve çıkar ilişkileriyle örülmüş bir düzenin hikayesini sahneye taşıyor.\n\nTaş evlerin gölgesindeki bir köyde herkes bir şey biliyor…\nAma kimse konuşmuyor.\n\nFeodal bağların, görünmeyen güçlerin ve kuşaktan kuşağa aktarılan suskunluğun ortasında gerçek yavaş yavaş gün yüzüne çıkarken seyirci şu soruyla baş başa kalıyor:\n\nSessizlik kimi korur?\nVe asıl suçlu kimdir — konuşmayanlar mı, yoksa konuşturmayan düzen mi?\n\nSus., adaletin sınırlarını zorlayan ve izleyiciyi vicdanıyla yüzleşmeye çağıran sarsıcı bir sahne deneyimi.\n\nTarih:\n1–2–3–4 Nisan 2026'
+        },
+        image: '/images/sus.jpg',
+        dates: '1-2-3-4 April 2026, 19:30',
+        venue: 'Tower Theatre, 16 Northwold Road, London N16 7HR',
+        duration: 'Theatre Play',
+        ticketPrice: '£27',
+        ticketLink: 'https://buy.stripe.com/bJe7sDbtY64NcU60TweZ209'
       },
       {
         id: 'earnest',
@@ -265,6 +289,22 @@ const Productions = () => {
     ],
     music: [
       {
+        id: 'sakali-akustik',
+        title: 'ŞAKALI AKUSTİK',
+        author: 'Harun Tekin & Koray Candemir',
+        status: 'On Sale',
+        description: {
+          EN: 'Two powerful voices of the rock scene — Mor ve Ötesi vocalist Harun Tekin and Kargo vocalist Koray Candemir take the "ŞAKALI AKUSTİK" stage, performing their own songs, each other\'s works, and their favourite tracks in stripped-back acoustic arrangements.\n\nWith plenty of conversation, laughter, and a heartfelt atmosphere, this special performance offers a warm concert experience that feels like music being made at home.',
+          TR: 'Rock sahnesinin iki güçlü sesi, "Mor ve Ötesi"\'nin solisti Harun Tekin ve "Kargo"\'nun solisti Koray Candemir, "ŞAKALI AKUSTİK" sahnesinde; kendi şarkılarını, birbirlerinin eserlerini ve en sevdikleri parçaları sade akustik düzenlemelerle yorumluyor.\n\nBol sohbetli, bol kahkahalı ve içten atmosferiyle bu özel performans, seyirciye adeta evde müzik yapılıyormuş hissi veren sıcacık bir konser deneyimi sunuyor.'
+        },
+        image: '/images/sakali-akustik.jpg',
+        dates: '26 March 2026',
+        venue: 'Islington Assembly Hall, London',
+        duration: 'Acoustic Concert',
+        ticketPrice: '£50',
+        ticketLink: 'https://buy.stripe.com/cNi14f9lQbp79HUdGieZ208'
+      },
+      {
         id: 'gripin-jazz-cafe',
         title: 'GRİPİN returns to London',
         author: '',
@@ -352,6 +392,7 @@ const Productions = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'Current':
+      case 'On Sale':
         return 'bg-accent text-accent-foreground';
       case 'Upcoming':
         return 'bg-primary text-primary-foreground';
@@ -430,6 +471,10 @@ const Productions = () => {
         {/* All Productions in a single list */}
         <div className="grid md:grid-cols-2 gap-8">
           {[...categories.theatre, ...categories.art, ...categories.music, ...categories.film]
+            .sort((a, b) => {
+              const order = { 'On Sale': 0, 'Current': 1, 'Upcoming': 2, 'Past': 3 };
+              return (order[a.status] ?? 4) - (order[b.status] ?? 4);
+            })
             .map((production) => (
               <ProductionCard key={production.id} production={production} getStatusColor={getStatusColor} t={t} />
             ))}

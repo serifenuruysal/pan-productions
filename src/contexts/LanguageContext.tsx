@@ -59,6 +59,18 @@ const translations = {
     'hero.slide4.processing': 'Processing...',
     'hero.slide4.ticketName': 'Love of Rumi Ticket',
     
+    'hero.slide5.title': 'ŞAKALI AKUSTİK',
+    'hero.slide5.subtitle': '26 March 2026 • Islington Assembly Hall, London',
+    'hero.slide5.description': 'An intimate, unfiltered and laughter-filled acoustic night by Mor ve Ötesi vocalist Harun Tekin and Kargo vocalist Koray Candemir 🎸',
+    'hero.slide5.buyTicket': 'Buy Tickets - £50',
+    'hero.slide5.ticketName': 'Şakalı Akustik Ticket',
+    
+    'hero.slide6.title': 'Sus.',
+    'hero.slide6.subtitle': '1-2-3-4 April 2026 • 7:30 PM • Tower Theatre, London',
+    'hero.slide6.description': 'Sus. The loudest form of injustice.\n\nA shocking stage experience that pushes the boundaries of justice and calls for a confrontation with conscience.',
+    'hero.slide6.buyTicket': 'Buy Tickets - £27',
+    'hero.slide6.ticketName': 'Sus. Ticket',
+    
     // Index Page
     'index.whatWeOffer': 'What We Offer',
     'index.discover': 'Discover Pan Productions',
@@ -709,6 +721,18 @@ const translations = {
     'hero.slide4.buyTicket': 'Bilet Al - £25',
     'hero.slide4.processing': 'İşleniyor...',
     'hero.slide4.ticketName': 'Rumi\'nin Aşkı Bileti',
+    
+    'hero.slide5.title': 'ŞAKALI AKUSTİK',
+    'hero.slide5.subtitle': '26 Mart 2026 • Islington Assembly Hall, Londra',
+    'hero.slide5.description': 'Mor ve Ötesi solisti Harun Tekin ve Kargo solisti Koray Candemir\'den; samimi, filtresiz ve bol kahkahalı akustik gece 🎸',
+    'hero.slide5.buyTicket': 'Bilet Al - £50',
+    'hero.slide5.ticketName': 'Şakalı Akustik Bileti',
+    
+    'hero.slide6.title': 'Sus.',
+    'hero.slide6.subtitle': '1-2-3-4 Nisan 2026 • 19:30 • Tower Theatre, Londra',
+    'hero.slide6.description': 'Sus. Adaletsizliğin en gürültülü hali.\n\nSus. adaletin sınırlarını zorlayan, vicdanla yüzleşmeye çağıran sarsıcı bir sahne deneyimi.',
+    'hero.slide6.buyTicket': 'Bilet Al - £27',
+    'hero.slide6.ticketName': 'Sus. Bileti',
     
     // Index Page
     'index.whatWeOffer': 'Neler Sunuyoruz',

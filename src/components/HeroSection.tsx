@@ -19,6 +19,8 @@ interface Slide {
   ticketPrice?: number;
   ticketName?: string;
   ticketLink?: string;
+  buyTicketText?: string;
+  posterStyle?: boolean;
 }
 
 const STRIPE_TICKET_LINK = 'https://buy.stripe.com/3cI5kv69E78R3jweKmeZ207';
@@ -36,10 +38,40 @@ const HeroSection = () => {
       description: t('hero.slide4.description'),
       image: '/images/love-of-rumi.jpg',
       type: 'current',
+      posterStyle: true,
       showBuyTicket: true,
       ticketPrice: 25.00,
       ticketName: t('hero.slide4.ticketName'),
-      ticketLink: 'https://buy.stripe.com/3cI5kv69E78R3jweKmeZ207'
+      ticketLink: 'https://buy.stripe.com/3cI5kv69E78R3jweKmeZ207',
+      buyTicketText: t('hero.slide4.buyTicket')
+    },
+    {
+      id: 'sakali-akustik',
+      title: t('hero.slide5.title'),
+      subtitle: t('hero.slide5.subtitle'),
+      description: t('hero.slide5.description'),
+      image: '/images/sakali-akustik.jpg',
+      type: 'current',
+      posterStyle: true,
+      showBuyTicket: true,
+      ticketPrice: 50.00,
+      ticketName: t('hero.slide5.ticketName'),
+      ticketLink: 'https://buy.stripe.com/cNi14f9lQbp79HUdGieZ208',
+      buyTicketText: t('hero.slide5.buyTicket')
+    },
+    {
+      id: 'sus',
+      title: t('hero.slide6.title'),
+      subtitle: t('hero.slide6.subtitle'),
+      description: t('hero.slide6.description'),
+      image: '/images/sus.jpg',
+      type: 'current',
+      posterStyle: true,
+      showBuyTicket: true,
+      ticketPrice: 27.00,
+      ticketName: t('hero.slide6.ticketName'),
+      ticketLink: 'https://buy.stripe.com/bJe7sDbtY64NcU60TweZ209',
+      buyTicketText: t('hero.slide6.buyTicket')
     },
     // {
     //   id: 'productions',
@@ -175,8 +207,8 @@ const HeroSection = () => {
       </div>
 
       {/* Left Image/Video Section */}
-      <div className="flex relative z-10 w-full lg:w-2/5 h-auto lg:h-full items-center justify-start pl-8 sm:pl-12 lg:pl-16 xl:pl-20 pr-4 sm:pr-6 lg:pr-8 mt-8 lg:mt-0 order-1 lg:order-1">
-        <div className={`relative w-full ${currentSlide === 0 ? 'max-w-xs sm:max-w-sm lg:max-w-md' : 'max-w-sm sm:max-w-md lg:max-w-2xl'}`}>
+      <div className="flex relative z-10 w-full lg:w-2/5 h-auto lg:h-full items-center justify-start pl-8 sm:pl-12 lg:pl-16 xl:pl-20 pr-4 sm:pr-6 lg:pr-8 mt-8 lg:mt-0 order-1 lg:order-1 py-6 sm:py-8 lg:py-12">
+        <div className={`relative w-full ${slides[currentSlide].posterStyle ? 'max-w-xs sm:max-w-sm lg:max-w-md' : 'max-w-sm sm:max-w-md lg:max-w-2xl'}`}>
           {slides[currentSlide].video ? (
             <div className="relative w-full rounded-xl lg:rounded-2xl shadow-2xl overflow-hidden bg-black">
               <video
@@ -196,7 +228,7 @@ const HeroSection = () => {
             <img
               src={slides[currentSlide].image}
               alt={slides[currentSlide].title}
-              className="relative w-full h-auto object-contain rounded-xl lg:rounded-2xl shadow-2xl"
+              className={`relative w-full rounded-xl lg:rounded-2xl shadow-2xl ${slides[currentSlide].posterStyle ? 'h-[400px] sm:h-[500px] lg:h-[600px] object-contain' : 'h-auto object-contain'}`}
             />
           )}
         </div>
@@ -237,7 +269,7 @@ const HeroSection = () => {
               disabled={isProcessingTicket}
             >
               <Ticket className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-              {isProcessingTicket ? t('hero.slide4.processing') : t('hero.slide4.buyTicket')}
+              {isProcessingTicket ? t('hero.slide4.processing') : (slides[currentSlide].buyTicketText || t('hero.slide4.buyTicket'))}
             </Button>
           )}
         </div>
