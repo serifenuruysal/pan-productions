@@ -90,7 +90,7 @@ const Index = () => {
       <HeroSection />
 
       {/* Testimonials Slider */}
-      {/* <TestimonialsSlider /> */}
+      <TestimonialsSlider />
 
       {/* Highlights Section */}
       <section className="py-24 relative">
