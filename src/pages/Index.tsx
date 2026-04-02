@@ -28,7 +28,6 @@ import {
 
 const Index = () => {
   const { t, language } = useLanguage();
-  console.log("[v0] Index page rendering");
 
   // Structured data for organization
   const organizationSchema = {
