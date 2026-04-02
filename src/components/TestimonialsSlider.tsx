@@ -13,6 +13,7 @@ import Autoplay from 'embla-carousel-autoplay';
 
 const TestimonialsSlider = () => {
   const { language } = useLanguage();
+  console.log("[v0] TestimonialsSlider rendering, language:", language);
 
   const testimonials = [
     {
