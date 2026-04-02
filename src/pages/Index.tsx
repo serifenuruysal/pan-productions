@@ -1,5 +1,6 @@
 import React from 'react';
 import HeroSection from '@/components/HeroSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import NewsletterSection from '@/components/NewsletterSection';
 import PartnersCarousel from '@/components/PartnersCarousel';
 import SEO from '@/components/SEO';
@@ -87,6 +88,9 @@ const Index = () => {
       
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
 
       {/* Highlights Section */}
       <section className="py-24 relative">
